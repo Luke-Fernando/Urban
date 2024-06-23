@@ -1,0 +1,1 @@
+<footer class="container mx-auto h-[450px] bg-[var(--main-font-color)]"></footer>

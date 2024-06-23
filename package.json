@@ -1,0 +1,18 @@
+{
+  "name": "ninjalancer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./public/assets/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "flowbite": "^2.3.0"
+  }
+}
