@@ -6,15 +6,14 @@ class HomeController extends Controller {
 
     constructor() {
         super();
+    }
+
+    home() {
         let checkbox = new Checkbox();
         checkbox.toggleCheckbox();
         let dropdown = new Dropdown();
         dropdown.triggerDropdowns();
         this.triggerFilter();
-    }
-
-    home() {
-        console.log("Hello Home");
     }
 
     showFilter(filterMenu, filterBg) {

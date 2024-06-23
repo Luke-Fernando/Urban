@@ -24,12 +24,12 @@
         <div class="overflow-hidden md:absolute md:top-full md:left-0 
     w-full md:w-max h-auto z-auto md:z-[999] pt-5 md:shadow-md">
             <div class="w-full md:w-max h-auto bg-[var(--bg-white-low)] border-l md:border border-[var(--main-font-color-20)] p-2 flex flex-col justify-start 
-        items-start px-5">
+        items-start px-5 md:min-w-36 box-border md:p-0">
                 <?php
                 foreach ($data['sub_links'] as $link) {
                 ?>
                     <a href="<?php echo $link['link']; ?>" class="w-full h-auto flex justify-start items-center font-normal md:font-medium text-[var(--main-font-color-90)] 
-                            hover:text-[var(--active-color-brown)] ease-linear duration-75 text-base md:text-sm py-2">
+                            hover:text-[var(--active-color-brown)] ease-linear duration-75 text-base md:text-sm py-2 md:px-5">
                         <?php echo $link['title']; ?>
                     </a>
                 <?php

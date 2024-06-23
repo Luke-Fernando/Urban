@@ -99,7 +99,7 @@
                 ?>
                 <!--  -->
                 <div class="w-full md:w-max md:mx-2 my-[2px] md:my-0 flex flex-col justify-start items-start md:justify-center md:items-center relative cursor-pointer group">
-                    <a href="#" class="w-max flex justify-center items-center font-normal md:font-medium text-[var(--main-font-color-90)] 
+                    <a href="/messages" class="w-max flex justify-center items-center font-normal md:font-medium text-[var(--main-font-color-90)] 
                     hover:text-[var(--active-color-brown)] ease-linear duration-75 text-base md:text-sm">
                         Messages
                     </a>
@@ -156,7 +156,7 @@
                         'icon' => $profile_icon_html,
                         'sub_links' => array(
                             array(
-                                'title' => 'profile',
+                                'title' => 'Profile',
                                 'link' => '/profile',
                             ),
                             array(

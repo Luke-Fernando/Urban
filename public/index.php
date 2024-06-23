@@ -7,16 +7,17 @@ require __DIR__ . "/../app/helpers/Database.php";
 require __DIR__ . "/../app/core/Model.php";
 require __DIR__ . "/../app/controllers/HomeController.php";
 require __DIR__ . "/../app/controllers/AuthController.php";
+require __DIR__ . "/../app/controllers/ProfileController.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
 $router->register('/home', 'HomeController', 'home');
 $router->register('/dashboard', 'DashboardController', 'home');
-// $router->register('/signin', 'AuthController', 'job_feed');
 $router->register('/api/auth/signin', 'AuthController', 'signin_process');
 $router->register('/api/auth/signup', 'AuthController', 'signup_process');
 $router->register('/signin', 'AuthController', 'signin');
 $router->register('/signup', 'AuthController', 'signup');
+$router->register('/profile', 'ProfileController', 'profile');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 
