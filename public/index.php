@@ -8,6 +8,7 @@ require __DIR__ . "/../app/core/Model.php";
 require __DIR__ . "/../app/controllers/HomeController.php";
 require __DIR__ . "/../app/controllers/AuthController.php";
 require __DIR__ . "/../app/controllers/ProfileController.php";
+require __DIR__ . "/../app/controllers/MessageController.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
@@ -18,6 +19,7 @@ $router->register('/api/auth/signup', 'AuthController', 'signup_process');
 $router->register('/signin', 'AuthController', 'signin');
 $router->register('/signup', 'AuthController', 'signup');
 $router->register('/profile', 'ProfileController', 'profile');
+$router->register('/message', 'MessageController', 'message');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 

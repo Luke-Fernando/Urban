@@ -77,14 +77,7 @@ class Navbar {
         dropdownTriggers.forEach(trigger => {
             if (trigger != null) {
                 let dropdownId = trigger.getAttribute("data-nav-dropdown-trigger");
-                let hoverStat = trigger.getAttribute("data-hover");
                 let dropdown = document.querySelector(`[data-nav-dropdown-menu="${dropdownId}"]`);
-                // if (hoverStat == 'true') {
-                //     this.toggleHoverDropdown(trigger, dropdown);
-                //     this.toggleClickDropdown(trigger, dropdown);
-                // } else if (hoverStat == 'false') {
-                //     this.toggleClickDropdown(trigger, dropdown);
-                // }
                 this.toggleClickDropdown(trigger, dropdown);
                 document.addEventListener("click", (event) => {
                     if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
