@@ -34,7 +34,7 @@ class MessageController extends Controller {
         let dropdowns = document.querySelectorAll('[data-message-dropdown]');
         dropdowns.forEach(dropdown => {
             if (dropdown != currentDropdown) {
-                this.clickHideDropdown(dropdown);
+                this.hideMessageDropdown(dropdown);
             }
         });
     }
