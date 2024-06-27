@@ -122,7 +122,7 @@
                 ?>
                 <button class="w-8 aspect-square justify-center items-center overflow-hidden border-2 border-[var(--main-font-color-20)] 
                 hover:border-[var(--active-color-brown-low)] focus:border-[var(--active-color-brown)] hidden md:flex">
-                    <img src="/assets/images/users/profile.png" alt="" class="min-w-full min-h-full object-cover">
+                    <img src="/assets/images/users/user.png" alt="" class="min-w-full min-h-full object-cover">
                 </button>
                 <?php
                 $profile_icon_html = ob_get_clean();

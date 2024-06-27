@@ -1,6 +1,7 @@
 import Controller from "../core/Controller.js";
 import Checkbox from "../helpers/Checkbox.js";
 import Dropdown from "../helpers/Dropdown.js";
+import TriggerEnter from "../helpers/TriggerEnter.js";
 
 class MessageController extends Controller {
     constructor() {
@@ -9,10 +10,13 @@ class MessageController extends Controller {
         checkbox.toggleCheckbox();
         let dropdown = new Dropdown();
         dropdown.triggerDropdowns();
+        let triggerEnter = new TriggerEnter();
+        triggerEnter.triggerInputEnter();
     }
 
     message() {
         this.triggerMessageDropdowns();
+        this.triggerMessageOptionsDropdowns();
     }
 
     showMessageDropdown(dropdown) {
@@ -56,6 +60,54 @@ class MessageController extends Controller {
                     document.addEventListener("click", (event) => {
                         if (!(dropdown.contains(event.target)) && !(trigger.contains(event.target))) {
                             this.hideMessageDropdown(dropdown);
+                        }
+                    });
+                });
+            }
+        })
+    }
+    //
+    showMessageOptionsDropdown(dropdown) {
+        dropdown.classList.remove('invisible');
+        dropdown.classList.remove('max-w-0');
+        dropdown.classList.add('max-w-[1500px]');
+        dropdown.setAttribute('data-show', 'true');
+        this.hideAllMessageOptionsDropdowns(dropdown);
+    }
+
+    hideMessageOptionsDropdown(dropdown) {
+        dropdown.classList.add('invisible');
+        dropdown.classList.remove('max-w-[1500px]');
+        dropdown.classList.add('max-w-0');
+        dropdown.setAttribute('data-show', 'false');
+    }
+
+    hideAllMessageOptionsDropdowns(currentDropdown) {
+        let dropdowns = document.querySelectorAll('[data-message-option-dropdown]');
+        dropdowns.forEach(dropdown => {
+            if (dropdown != currentDropdown) {
+                this.hideMessageOptionsDropdown(dropdown);
+            }
+        });
+    }
+
+    triggerMessageOptionsDropdowns() {
+        const messageDropdownsTriggers = document.querySelectorAll("[data-message-option-trigger]");
+
+        messageDropdownsTriggers.forEach(trigger => {
+            if (trigger != null) {
+                let dropdownId = trigger.getAttribute("data-message-option-trigger");
+                let dropdown = document.querySelector(`[data-message-option-dropdown="${dropdownId}"]`);
+                trigger.addEventListener("click", () => {
+                    let dropdownStat = dropdown.getAttribute('data-show');
+                    if (dropdownStat == 'true') {
+                        this.hideMessageOptionsDropdown(dropdown);
+                    } else if (dropdownStat == 'false') {
+                        this.showMessageOptionsDropdown(dropdown);
+                    }
+                    document.addEventListener("click", (event) => {
+                        if (!(dropdown.contains(event.target)) && !(trigger.contains(event.target))) {
+                            this.hideMessageOptionsDropdown(dropdown);
                         }
                     });
                 });

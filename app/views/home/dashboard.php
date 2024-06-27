@@ -196,9 +196,9 @@
             <!-- search  -->
             <div class="w-full h-auto flex justify-center md:justify-start items-center">
                 <label for="search" class="flex-1 md:flex-none md:max-w-[630px] md:w-[90%] h-[40px] flex justify-center items-center">
-                    <input placeholder="Search jobs" type="search" class="flex-1 h-full box-border border-none text-sm bg-[var(--bg-white-low)] ring-1 
+                    <input data-enter-trigger-input="search-jobs" placeholder="Search jobs" type="search" class="flex-1 h-full box-border border-none text-sm bg-[var(--bg-white-low)] ring-1 
                     ring-[var(--main-font-color-20)] focus:ring-[var(--active-color-brown)]">
-                    <button class="w-max h-full flex justify-center items-center font-medium text-[var(--main-bg-yellow)] text-sm 
+                    <button data-enter-trigger-input-enter="search-jobs" class="w-max h-full flex justify-center items-center font-medium text-[var(--main-bg-yellow)] text-sm 
                     bg-[var(--active-color-brown-low)] hover:bg-[var(--active-color-brown)] ease-linear duration-75 px-4 ring-1 
                     ring-[var(--main-font-color-20)] active:scale-95">Search</button>
                 </label>

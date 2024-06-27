@@ -16,7 +16,7 @@
         <section class="w-full h-auto flex flex-col sm:flex-row justify-start items-center sm:justify-between sm:items-start">
             <div class="w-52 h-auto flex flex-col justify-start items-center overflow-hidden">
                 <div class="w-full aspect-square flex justify-center items-center relative">
-                    <img id="profile-picture" src="/assets/images/users/profile.png" alt="profile picture" class="min-w-full min-h-full object-cover">
+                    <img id="profile-picture" src="/assets/images/users/user.png" alt="profile picture" class="min-w-full min-h-full object-cover">
                     <label title="Change profile picture" for="profile-picture-edit" class="w-6 h-auto p-1 flex justify-center items-center absolute bottom-0 right-0 text-[var(--bg-white-low)] 
                 hover:bg-[var(--active-color-brown)] active:scale-95 duration-75 ease-linear bg-[var(--active-color-brown-low)]">
                         <input type="file" id="profile-picture-edit" class="hidden" accept="image/*">

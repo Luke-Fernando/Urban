@@ -1,11 +1,14 @@
 import Controller from "../core/Controller.js";
 import Checkbox from "../helpers/Checkbox.js";
 import Dropdown from "../helpers/Dropdown.js";
+import TriggerEnter from "../helpers/TriggerEnter.js";
 
 class HomeController extends Controller {
 
     constructor() {
         super();
+        let triggerEnter = new TriggerEnter();
+        triggerEnter.triggerInputEnter();
     }
 
     home() {
