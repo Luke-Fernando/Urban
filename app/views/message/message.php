@@ -96,7 +96,8 @@
                         "id" => "1",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array()
                     ),
                     array(
                         "profile_picture" => "user.png",
@@ -105,7 +106,8 @@
                         "id" => "2",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array()
                     ),
                     array(
                         "profile_picture" => "client.png",
@@ -114,7 +116,8 @@
                         "id" => "3",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array()
                     ),
                     array(
                         "profile_picture" => "user.png",
@@ -123,7 +126,8 @@
                         "id" => "4",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array()
                     ),
                     array(
                         "profile_picture" => "client.png",
@@ -132,7 +136,8 @@
                         "id" => "5",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array()
                     ),
                     array(
                         "profile_picture" => "user.png",
@@ -141,7 +146,10 @@
                         "id" => "6",
                         "message" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit obcaecati repudiandae, est recusandae molestias ad
                             voluptatibus nobis, doloribus quis ipsam dolorum veniam eligendi necessitatibus reiciendis quibusdam maiores quam, provident
-                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!"
+                            accusamus? Quae, eum reiciendis molestias sequi minima aliquam in ad!",
+                        "files" => array(
+                            "file_1" => "file.png"
+                        )
                     ),
                 );
 
