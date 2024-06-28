@@ -9,7 +9,7 @@ class Navbar {
         dropdown.classList.add('md:max-h-[1500px]');
         dropdown.setAttribute('data-show', 'true');
 
-        this.hideAllDropdowns(dropdown);
+        // this.hideAllDropdowns(dropdown);
     }
 
     hoverHideDropdown(dropdown) {
@@ -27,7 +27,7 @@ class Navbar {
         dropdown.classList.add('max-h-[1500px]');
         dropdown.setAttribute('data-show', 'true');
 
-        this.hideAllDropdowns(dropdown);
+        // this.hideAllDropdowns(dropdown);
     }
 
     clickHideDropdown(dropdown) {
@@ -50,15 +50,15 @@ class Navbar {
         });
     }
 
-    toggleHoverDropdown(trigger, dropdown) {
-        trigger.addEventListener('mouseover', () => {
-            this.hoverShowDropdown(dropdown);
-        });
+    // toggleHoverDropdown(trigger, dropdown) {
+    //     trigger.addEventListener('mouseover', () => {
+    //         this.hoverShowDropdown(dropdown);
+    //     });
 
-        trigger.addEventListener('mouseout', () => {
-            this.hoverHideDropdown(dropdown);
-        });
-    }
+    //     trigger.addEventListener('mouseout', () => {
+    //         this.hoverHideDropdown(dropdown);
+    //     });
+    // }
 
     toggleClickDropdown(trigger, dropdown) {
         trigger.addEventListener('click', () => {

@@ -1234,6 +1234,10 @@ input:checked + .toggle-bg {
   z-index: auto;
 }
 
+.z-\[9999\] {
+  z-index: 9999;
+}
+
 .float-start {
   float: inline-start;
 }
@@ -1318,6 +1322,11 @@ input:checked + .toggle-bg {
   margin-bottom: 0.5rem;
 }
 
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1331,11 +1340,6 @@ input:checked + .toggle-bg {
 .my-\[2px\] {
   margin-top: 2px;
   margin-bottom: 2px;
-}
-
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
 }
 
 .mb-1 {
@@ -1721,14 +1725,6 @@ input:checked + .toggle-bg {
   width: 100vw;
 }
 
-.w-2 {
-  width: 0.5rem;
-}
-
-.w-\[80\%\] {
-  width: 80%;
-}
-
 .min-w-full {
   min-width: 100%;
 }
@@ -1749,6 +1745,10 @@ input:checked + .toggle-bg {
   max-width: 430px;
 }
 
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+
 .max-w-\[900px\] {
   max-width: 900px;
 }
@@ -1759,6 +1759,10 @@ input:checked + .toggle-bg {
 
 .max-w-full {
   max-width: 100%;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
 }
 
 .flex-1 {
@@ -2904,6 +2908,10 @@ input:checked + .toggle-bg {
   background-color: var(--main-font-color-20);
 }
 
+.bg-\[var\(--main-font-color-30\)\] {
+  background-color: var(--main-font-color-30);
+}
+
 .bg-\[var\(--main-font-color-80\)\] {
   background-color: var(--main-font-color-80);
 }
@@ -3079,6 +3087,10 @@ input:checked + .toggle-bg {
   padding: 1rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -3177,6 +3189,14 @@ input:checked + .toggle-bg {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -3425,6 +3445,10 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[var\(--main-font-color-20\)\] {
+  color: var(--main-font-color-20);
 }
 
 .underline {
@@ -4060,6 +4084,10 @@ input:checked + .toggle-bg {
   background-color: var(--bg-white-low);
 }
 
+.hover\:bg-\[var\(--main-font-color-80\)\]:hover {
+  background-color: var(--main-font-color-80);
+}
+
 .hover\:bg-\[var\(--main-font-color-90\)\]:hover {
   background-color: var(--main-font-color-90);
 }
@@ -4108,6 +4136,10 @@ input:checked + .toggle-bg {
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[var\(--main-font-color-80\)\]:hover {
+  color: var(--main-font-color-80);
 }
 
 .hover\:underline:hover {

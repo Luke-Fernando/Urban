@@ -100,7 +100,26 @@
         <?php
         }
         ?>
-
+        <div class="w-full h-auto max-w-[500px] bg-[--bg-white-low] border border-[var(--main-font-color-20)] flex flex-col justify-start items-start box-border
+        p-5 mt-3">
+            <p class="text-sm font-medium text-[var(--main-font-color-80)] mb-3">Sample request name</p>
+            <p class="text-sm font-normal text-[var(--main-font-color-80)] mb-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, tenetur. Nobis aliquid ipsa tempore quaerat distinctio recusandae rerum
+                delectus pariatur.
+            </p>
+            <p class="text-sm text-[var(--main-font-color-80)] my-1"><span class="font-medium text-sm">Duration:</span><span class="font-normal text-sm">1 month</span></p>
+            <p class="text-sm text-[var(--main-font-color-80)] my-1"><span class="font-medium text-sm">Price:</span><span class="font-normal text-sm">$10.00/hr</span></p>
+            <div class="w-full h-auto flex justify-start items-center flex-wrap mt-5">
+                <button class="w-max h-[40px] px-3 py-2 border border-[var(--main-font-color-20)] text-sm font-normal text-[var(--bg-white-low)] mx-2 my-2 
+                bg-[var(--main-font-color-30)] hover:bg-[var(--main-font-color-80)] active:scale-95 duration-75 ease-linear">
+                    Negative option
+                </button>
+                <button class="w-max h-[40px] px-3 py-2 border border-[var(--main-font-color-20)] text-sm font-normal text-[var(--bg-white-low)] mx-2 my-2
+                bg-[var(--active-color-brown-low)] hover:bg-[var(--active-color-brown)] active:scale-95 duration-75 ease-linear">
+                    Positive option
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 <!-- message -->
