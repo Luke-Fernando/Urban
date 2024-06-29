@@ -1,15 +1,19 @@
 class Confirm {
+
+    #id;
+    #confirmModel;
+
     constructor() {
-        this.id;
-        this.confirmModel;
+        this.#id;
+        this.#confirmModel;
     }
 
-    generateUniqueId() {
+    #generateUniqueId() {
         const timestamp = new Date().getTime();
         return timestamp;
     }
 
-    createConfirmModel(id, noticeContent, trueButtonContent, falseButtonContent) {
+    #createConfirmModel(id, noticeContent, trueButtonContent, falseButtonContent) {
         const confirmModel = document.createElement('section');
         confirmModel.setAttribute('data-confirm', id);
         confirmModel.classList.add('fixed', 'w-screen', 'h-screen', 'top-0', 'left-0', 'bg-[var(--main-font-color-20)]', 'z-[9999]', 'flex', 'justify-center', 'items-center');
@@ -44,7 +48,7 @@ class Confirm {
         const noticeParagraph = document.createElement('p');
         noticeParagraph.setAttribute('data-confirm-notice', id);
         noticeParagraph.classList.add('text-sm', 'font-medium', 'text-[var(--main-font-color-80)]', 'text-center', 'pt-6');
-        noticeParagraph.textContent = notice;
+        noticeParagraph.textContent = noticeContent;
         mainDiv.appendChild(noticeParagraph);
 
         const actionButtonsContainer = document.createElement('div');
@@ -67,46 +71,48 @@ class Confirm {
         return confirmModel;
     }
 
-    appendConfirmModal(noticeContent, trueButtonContent, falseButtonContent) {
+    async #appendConfirmModal(noticeContent, trueButtonContent, falseButtonContent) {
         document.body.style.overflow = "hidden";
-        this.id = this.generateUniqueId();
-        this.confirmModel = this.createConfirmModel(this.id, noticeContent, trueButtonContent, falseButtonContent);
-        document.body.appendChild(this.confirmModel);
-    }
-
-    removeConfirmModal() {
-        document.body.removeChild(this.confirmModel);
-    }
-
-    distpatchChoice(choice) {
-        let choiceEvent = new CustomEvent("confirmation", {
-            confirmed: choice
+        this.#id = this.#generateUniqueId();
+        this.#confirmModel = this.#createConfirmModel(this.#id, noticeContent, trueButtonContent, falseButtonContent);
+        await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 10);
         });
-        document.dispatchEvent(choiceEvent);
+        document.body.appendChild(this.#confirmModel);
+    }
+
+    #removeConfirmModal() {
+        this.#confirmModel.remove();
+    }
+
+    #distpatchChoice(choice) {
+        let confirmation = new CustomEvent("confirmation", {
+            detail: {
+                selected: choice
+            }
+        });
+        document.dispatchEvent(confirmation);
     }
 
     askForConfirmation(noticeContent = "Are you sure?", trueButtonContent = "Yes", falseButtonContent = "No") {
-        this.appendConfirmModal(noticeContent, trueButtonContent, falseButtonContent);
-        let trueButton = document.querySelector(`[data-confirm-true="${this.id}"]`);
-        let falseButton = document.querySelector(`[data-confirm-false="${this.id}"]`);
-        let closeButton = document.querySelector(`[data-confirm-close="${this.id}"]`);
-        let modelDiv = document.querySelector(`[data-confirm-model="${this.id}"]`);
-        trueButton.addEventListener("click", () => {
-            this.distpatchChoice(true);
-            this.removeConfirmModal();
-        });
-        falseButton.addEventListener("click", () => {
-            this.distpatchChoice(false);
-            this.removeConfirmModal();
-        });
-        closeButton.addEventListener("click", () => {
-            this.distpatchChoice(false);
-            this.removeConfirmModal();
-        });
+        this.#appendConfirmModal(noticeContent, trueButtonContent, falseButtonContent);
+
         document.addEventListener("click", (event) => {
-            if (!modelDiv.contains(event.target)) {
-                this.distpatchChoice(false);
-                this.removeConfirmModal();
+            if (event.target.matches(`[data-confirm-true="${this.#id}"]`)) {
+                this.#distpatchChoice(true);
+                this.#removeConfirmModal();
+            } else if (event.target.matches(`[data-confirm-false="${this.#id}"]`)) {
+                this.#distpatchChoice(false);
+                this.#removeConfirmModal();
+            } else if (event.target.matches(`[data-confirm-close="${this.#id}"]`)) {
+                this.#distpatchChoice(false);
+                this.#removeConfirmModal();
+            }
+            if (!(event.target.matches(`[data-confirm-model="${this.#id}"]`)) && event.target.matches(`[data-confirm="${this.#id}"]`)) {
+                this.#distpatchChoice(false);
+                this.#removeConfirmModal();
             }
         });
     }

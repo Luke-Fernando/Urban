@@ -1,5 +1,6 @@
 import Controller from "../core/Controller.js";
 import Checkbox from "../helpers/Checkbox.js";
+import Confirm from "../helpers/Confirm.js";
 import Dropdown from "../helpers/Dropdown.js";
 import TriggerEnter from "../helpers/TriggerEnter.js";
 
@@ -12,11 +13,13 @@ class MessageController extends Controller {
         dropdown.triggerDropdowns();
         let triggerEnter = new TriggerEnter();
         triggerEnter.triggerInputEnter();
+        this.confirmation = new Confirm();
     }
 
     message() {
         this.triggerMessageDropdowns();
         this.triggerMessageOptionsDropdowns();
+        this.deleteMessage();
     }
 
     showMessageDropdown(dropdown) {
@@ -112,6 +115,20 @@ class MessageController extends Controller {
                     });
                 });
             }
+        })
+    }
+
+    deleteMessage() {
+        let deleteMessageButtons = document.querySelectorAll("[data-delete-message]");
+
+        deleteMessageButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                this.confirmation.askForConfirmation("Are you sure you want to delete this message?", "Delete", "Cancel");
+            })
+        });
+
+        document.addEventListener("confirmation", (event) => {
+            console.log(event.detail.selected);
         })
     }
 }

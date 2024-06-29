@@ -27,7 +27,7 @@
                     <!-- arrow -->
                     <!-- dropdown -->
                     <div class="bg-[var(--bg-white-low)] flex flex-col justify-start items-start py-2 px-5 border border-[var(--main-font-color-20)]]">
-                        <button class="w-max h-auto text-xs font-normal text-[var(--main-font-color-80)] py-1 hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+                        <button data-delete-message="<?php echo $data['id']; ?>" class="w-max h-auto text-xs font-normal text-[var(--main-font-color-80)] py-1 hover:text-[var(--active-color-brown)] duration-75 ease-linear">
                             Delete message
                         </button>
                         <button class="w-max h-auto text-xs font-normal text-[var(--main-font-color-80)] py-1 hover:text-[var(--active-color-brown)] duration-75 ease-linear">
