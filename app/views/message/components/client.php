@@ -1,6 +1,6 @@
 <!-- client -->
 <div class="w-full box-border px-2 py-3 flex justify-between items-start relative cursor-pointer
-                hover:bg-[var(--bg-white-low)] duration-75 ease-linear hover:before:bg-[var(--active-color-brown)]
+                hover:bg-[var(--main-font-color-10)] duration-75 ease-linear hover:before:bg-[var(--active-color-brown)]
                 before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-[1px] before:h-[80%] before:duration-75 before:ease-linear 
                 before:bg-[var(--main-font-color-20)]">
     <div class="w-10 aspect-square flex justify-center items-center overflow-hidden relative

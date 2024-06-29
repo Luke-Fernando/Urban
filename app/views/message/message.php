@@ -181,18 +181,22 @@
                         flex flex-col justify-center items-start md:items-center shadow-md max-h-0 invisible duration-300 ease-linear">
                             <!-- dropdown -->
                             <div class="w-max h-auto bg-[var(--bg-white-low)] border-l md:border border-[var(--main-font-color-20)] flex flex-col justify-center 
-        items-start px-5 box-border">
-                                <button title="Zip" class="w-max h-auto flex justify-center items-center text-[var(--bg-white-low)] hover:bg-[var(--active-color-brown)] 
-                                duration-75 ease-linear active:scale-95 py-2 px-2 bg-[var(--active-color-brown-low)] text-sm my-2">
-                                    Request order complete
+        items-start py-3 box-border">
+                                <button title="Zip" class="min-w-max w-full h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] hover:bg-[var(--main-font-color-10)] 
+                                duration-75 ease-linear active:scale-95 py-2 px-5 text-sm">
+                                    Complete order
                                 </button>
-                                <button title="Pdf" class="w-max h-auto flex justify-center items-center text-[var(--bg-white-low)] hover:bg-[var(--active-color-brown)] 
-                                duration-75 ease-linear active:scale-95 py-2 px-2 bg-[var(--active-color-brown-low)] text-sm my-2">
-                                    Request a revision
+                                <button title="Pdf" class="min-w-max w-full h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] hover:bg-[var(--main-font-color-10)] 
+                                duration-75 ease-linear active:scale-95 py-2 px-5 text-sm">
+                                    Revision
                                 </button>
-                                <button title="Image" class="w-max h-auto flex justify-center items-center text-[var(--bg-white-low)] hover:bg-[var(--active-color-brown)] 
-                                duration-75 ease-linear active:scale-95 py-2 px-2 bg-[var(--active-color-brown-low)] text-sm my-2">
-                                    Send a custom offer
+                                <button title="Image" class="min-w-max w-full h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] hover:bg-[var(--main-font-color-10)] 
+                                duration-75 ease-linear active:scale-95 py-2 px-5 text-sm">
+                                    Custom offer
+                                </button>
+                                <button title="Image" class="min-w-max w-full h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] hover:bg-[var(--main-font-color-10)] 
+                                duration-75 ease-linear active:scale-95 py-2 px-5 text-sm">
+                                    Expand time
                                 </button>
                             </div>
                             <!-- dropdown -->
@@ -221,24 +225,24 @@
                         flex flex-col justify-center items-center shadow-md max-h-0 invisible duration-300 ease-linear">
                             <!-- dropdown -->
                             <div class="w-max h-auto bg-[var(--bg-white-low)] border-l md:border border-[var(--main-font-color-20)] flex flex-col justify-start 
-        items-start px-5 box-border shadow-md">
-                                <label for="zip" title="Zip" class="w-6 h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
-                                duration-75 ease-linear active:scale-95 py-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" class="w-full h-auto">
+        items-start py-3 box-border shadow-md">
+                                <label for="zip" title="Zip" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
+                                hover:bg-[var(--main-font-color-10)] duration-75 ease-linear active:scale-95 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" class="h-auto w-16 px-5 py-1">
                                         <path fill="currentColor" d="M413.4 0H114.7C91.1 0 72 19.1 72 42.7v426.7c0 23.5 19.1 42.7 42.7 42.7h298.7c23.5 0 42.7-19.1 42.7-42.7V42.7C456 19.1 436.9 0 413.4 0m-192 469.3L242.7 320h42.7l21.3 149.3zM328 128h-64v42.7h64v42.7h-64V256h64v42.7h-64V256h-64v-42.7h64v-42.7h-64V128h64V85.3h-64V42.7h64v42.7h64zm-74.6 277.3L242.7 448h42.7l-10.7-42.7z" />
                                     </svg>
                                     <input type="file" id="zip" class="hidden" accept="application/zip">
                                 </label>
-                                <label for="pdf" title="Pdf" class="w-6 h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
-                                duration-75 ease-linear active:scale-95 py-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024" class="w-full h-auto">
+                                <label for="pdf" title="Pdf" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
+                                hover:bg-[var(--main-font-color-10)] duration-75 ease-linear active:scale-95 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024" class="h-auto w-16 px-5 py-1">
                                         <path fill="currentColor" d="M854.6 288.7c6 6 9.4 14.1 9.4 22.6V928c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32h424.7c8.5 0 16.7 3.4 22.7 9.4zM790.2 326L602 137.8V326z" />
                                     </svg>
                                     <input type="file" id="pdf" class="hidden" accept="application/pdf">
                                 </label>
-                                <label for="image-files" title="Image" class="w-6 h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
-                                duration-75 ease-linear active:scale-95 py-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-full h-auto">
+                                <label for="image-files" title="Image" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
+                                hover:bg-[var(--main-font-color-10)] duration-75 ease-linear active:scale-95 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="h-auto w-16 px-5 py-1">
                                         <path fill="currentColor" d="M21 21V3H3v18zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z" />
                                     </svg>
                                     <input type="file" id="image-files" class="hidden" accept="image/*">

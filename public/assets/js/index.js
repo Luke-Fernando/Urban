@@ -3,6 +3,7 @@ import HomeController from "./controllers/HomeController.js";
 import AuthController from "./controllers/AuthController.js";
 import ProfileController from "./controllers/ProfileController.js";
 import MessageController from "./controllers/MessageController.js";
+import OfferController from "./controllers/OfferController.js";
 
 console.log(window.location.pathname);
 
@@ -14,5 +15,6 @@ router.register("/signin", AuthController, "signin");
 router.register("/signup", AuthController, "signup");
 router.register("/profile", ProfileController, "profile");
 router.register("/message", MessageController, "message");
+router.register("/offers", OfferController, "offer");
 
 router.dispatch(window.location.pathname);

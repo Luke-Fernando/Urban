@@ -41,6 +41,10 @@
                                 'link' => '/project-dashboard',
                             ),
                             array(
+                                'title' => 'Custom offers',
+                                'link' => '/offers',
+                            ),
+                            array(
                                 'title' => 'My stats',
                                 'link' => '/my-stats',
                             )
