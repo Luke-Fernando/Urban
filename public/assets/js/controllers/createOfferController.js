@@ -1,6 +1,7 @@
 import Controller from "../core/Controller.js";
 import Checkbox from "../helpers/Checkbox.js";
 import Confirm from "../helpers/Confirm.js";
+import Generate from "../helpers/Generate.js";
 import Select from "../helpers/Select.js";
 // import Dropdown from "../helpers/Dropdown.js";
 // import TriggerEnter from "../helpers/TriggerEnter.js";
@@ -19,7 +20,11 @@ class createOfferController extends Controller {
         select.triggerDropdowns();
     }
 
-    createOffer() { }
+    async createOffer() {
+        let generate = new Generate();
+        let milestone = await generate.generateElement("/assets/js/views/offers/create/milestone.php");
+        document.body.appendChild(milestone);
+    }
 }
 
 export default createOfferController;

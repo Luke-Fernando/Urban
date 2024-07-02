@@ -29,29 +29,25 @@
             </label>
             <div class="w-full h-auto flex flex-col justify-start items-start my-5">
                 <span class="text-base font-normal text-[var(--main-font-color-90)] mb-5">Milestones</span>
-                <div class="w-max max-w-full flex flex-col justify-start items-start px-5">
+                <div class="w-full flex flex-col justify-start items-start px-5 box-border">
                     <!-- milestone -->
-                    <div data-milestone="id" class="w-max max-w-full h-auto flex justify-start items-center">
+                    <div data-milestone="id" class="w-full h-auto flex justify-start items-center">
                         <button class="w-max h-auto flex justify-center items-center text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)]
                         duration-75 ease-linear px-2 py-3 mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-8 h-auto">
                                 <path fill="currentColor" d="M9 17h2V8H9zm4 0h2V8h-2zm-8 4V6H4V4h5V3h6v1h5v2h-1v15z" />
                             </svg>
                         </button>
-                        <div class="w-max max-w-full h-auto flex flex-col justify-start items-start border-l border-[var(--main-font-color-20)] pl-4">
-                            <span class="w-max max-w-full h-auto relative mb-3">
-                                <span class="text-sm font-medium text-[var(--main-font-color-90)]">This is the sample milestone title of the current milestone</span>
-                                <button data-edit="id" class="w-4 h-auto p-1 flex justify-center items-center absolute top-0 right-0 text-[var(--bg-white-low)] 
-                hover:bg-[var(--active-color-brown)] active:scale-95 duration-75 ease-linear bg-[var(--active-color-brown-low)]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-full h-auto">
-                                        <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z"></path>
-                                    </svg>
-                                </button>
+                        <div class="w-full h-auto flex flex-col justify-start items-start border-l border-[var(--main-font-color-20)] pl-4">
+                            <span class="w-full h-auto flex justify-start items-start relative mb-3">
+                                <input id="milestone-title" placeholder="Milestone title" type="text" class="w-full h-[35px] bg-[var(--bg-white-low)] border-none 
+                                ring-1 ring-[var(--main-font-color-20)] hover:ring-[var(--main-font-color-30)] px-3 focus:ring-[var(--active-color-brown)] text-sm 
+                                text-[var(--main-font-color-80)] font-normal">
                             </span>
                             <!-- details main -->
-                            <div class="w-max max-w-full h-auto flex flex-wrap justify-start items-start">
+                            <div class="w-full h-auto flex flex-wrap justify-start items-start">
                                 <!-- detail left -->
-                                <div class="w-max h-auto flex flex-col justify-start items-start mr-8">
+                                <div class="w-max h-auto flex flex-col justify-start items-start mr-8 my-2">
                                     <p class="text-sm text-[var(--main-font-color-80)] font-normal mb-1">Duration</p>
                                     <div>
                                         <input type="text" placeholder="Months" class="w-20 h-[35px] text-sm text-[var(--main-font-color-80)] border-none outline-none ring-1
@@ -62,7 +58,7 @@
                                 </div>
                                 <!-- detail left -->
                                 <!-- detail right -->
-                                <div class="w-max h-auto flex flex-col justify-start items-start">
+                                <div class="w-max h-auto flex flex-col justify-start items-start my-2">
                                     <p class="text-sm text-[var(--main-font-color-80)] font-normal mb-1">Charges</p>
                                     <div class="flex justify-center items-start">
                                         <!-- <input type="text" placeholder="Months" class="w-20 h-[35px] text-sm text-[var(--main-font-color-80)] border-none outline-none ring-1
@@ -112,6 +108,14 @@
                         </div>
                     </div>
                     <!-- milestone -->
+                    <div class="w-full h-auto flex justify-start items-start mt-16">
+                        <button class="w-max h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-5 h-auto mr-2">
+                                <path fill="currentColor" d="M21 3H3v18h18zm-4 10h-4v4h-2v-4H7v-2h4V7h2v4h4z"></path>
+                            </svg>
+                            <span class="text-sm text-inherit">Add new</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
