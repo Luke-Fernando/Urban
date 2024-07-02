@@ -1418,10 +1418,6 @@ input:checked + .toggle-bg {
   margin-top: 1.25rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -1533,10 +1529,6 @@ input:checked + .toggle-bg {
 
 .hidden {
   display: none;
-}
-
-.\!hidden {
-  display: none !important;
 }
 
 .aspect-\[5\/7\] {
@@ -2998,25 +2990,6 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 128 128 / var(--tw-bg-opacity));
-}
-
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(164 202 254 / var(--tw-bg-opacity));
-}
-
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(118 169 250 / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
-}
-
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -4227,10 +4200,6 @@ input:checked + .toggle-bg {
 
 .hover\:ring-\[var\(--active-color-brown-low\)\]:hover {
   --tw-ring-color: var(--active-color-brown-low);
-}
-
-.hover\:ring-\[var\(--main-font-color-80\)\]:hover {
-  --tw-ring-color: var(--main-font-color-80);
 }
 
 .hover\:ring-\[var\(--main-font-color-30\)\]:hover {

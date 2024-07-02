@@ -23,17 +23,15 @@ class Select {
     }
 
     triggerDropdowns() {
-        const dropdownTogglers = document.querySelectorAll("[data-select-trigger]");
 
-        dropdownTogglers.forEach(trigger => {
-            if (trigger != null) {
+        document.addEventListener("click", (event) => {
+            if (event.target.matches("[data-select-trigger]")) {
+                let trigger = event.target;
                 let id = trigger.getAttribute("data-select-trigger");
                 let menu = document.querySelector(`[data-select="${id}"]`);
                 let selected = document.querySelector(`[data-select-selected="${id}"]`);
                 let menuOptions = document.querySelectorAll(`[data-select-option="${id}"]`);
-                trigger.addEventListener("click", () => {
-                    this.#toggleMenu(menu);
-                });
+                this.#toggleMenu(menu);
                 document.addEventListener("click", (event) => {
                     if (!menu.contains(event.target) && !trigger.contains(event.target)) {
                         this.#toggleHide(menu);
@@ -49,7 +47,7 @@ class Select {
                     });
                 })
             }
-        })
+        });
     }
 }
 
