@@ -38,7 +38,7 @@
                             ),
                             array(
                                 'title' => 'Project dashboard',
-                                'link' => '/project-dashboard',
+                                'link' => '/projects/dashboard',
                             ),
                             array(
                                 'title' => 'Custom offers',
@@ -64,7 +64,7 @@
                             ),
                             array(
                                 'title' => 'Project dashboard',
-                                'link' => '/project-dashboard',
+                                'link' => '/projects/dashboard',
                             ),
                             array(
                                 'title' => 'My stats',
@@ -86,7 +86,7 @@
                             ),
                             array(
                                 'title' => 'Project dashboard',
-                                'link' => '/project-dashboard',
+                                'link' => '/projects/dashboard',
                             ),
                             array(
                                 'title' => 'My stats',

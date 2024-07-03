@@ -10,11 +10,12 @@ require __DIR__ . "/../app/controllers/AuthController.php";
 require __DIR__ . "/../app/controllers/ProfileController.php";
 require __DIR__ . "/../app/controllers/MessageController.php";
 require __DIR__ . "/../app/controllers/OfferController.php";
+require __DIR__ . "/../app/controllers/ProjectController.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
 $router->register('/home', 'HomeController', 'home');
-$router->register('/dashboard', 'DashboardController', 'home');
+$router->register('/dashboard', 'HomeController', 'home');
 $router->register('/api/auth/signin', 'AuthController', 'signin_process');
 $router->register('/api/auth/signup', 'AuthController', 'signup_process');
 $router->register('/signin', 'AuthController', 'signin');
@@ -24,6 +25,7 @@ $router->register('/message', 'MessageController', 'message');
 $router->register('/offers', 'OfferController', 'offers');
 $router->register('/offers/create', 'OfferController', 'create');
 $router->register('/offers/preview', 'OfferController', 'offer');
+$router->register('/projects/dashboard', 'ProjectController', 'projects');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 
