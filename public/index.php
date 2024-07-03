@@ -10,7 +10,6 @@ require __DIR__ . "/../app/controllers/AuthController.php";
 require __DIR__ . "/../app/controllers/ProfileController.php";
 require __DIR__ . "/../app/controllers/MessageController.php";
 require __DIR__ . "/../app/controllers/OfferController.php";
-require __DIR__ . "/../app/controllers/createOfferController.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
@@ -22,8 +21,9 @@ $router->register('/signin', 'AuthController', 'signin');
 $router->register('/signup', 'AuthController', 'signup');
 $router->register('/profile', 'ProfileController', 'profile');
 $router->register('/message', 'MessageController', 'message');
-$router->register('/offers', 'OfferController', 'offer');
-$router->register('/offers/create', 'createOfferController', 'create_offer');
+$router->register('/offers', 'OfferController', 'offers');
+$router->register('/offers/create', 'OfferController', 'create');
+$router->register('/offers/preview', 'OfferController', 'offer');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 

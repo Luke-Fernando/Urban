@@ -123,7 +123,7 @@
                 <div class="w-full h-auto flex justify-start items-center mt-16">
                     <button class="w-max h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
                     hover:bg-[var(--active-color-brown)] border border-[var(--main-font-color-20)] px-4 py-2 duration-75 ease-linear">
-                        Save template
+                        Save offer
                     </button>
                 </div>
             </div>
