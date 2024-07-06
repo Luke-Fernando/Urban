@@ -55,8 +55,8 @@
                         'link_id' => 'hire-freelancers',
                         'sub_links' => array(
                             array(
-                                'title' => 'Applications',
-                                'link' => '/applications',
+                                'title' => 'Post job',
+                                'link' => '/job/post',
                             ),
                             array(
                                 'title' => 'Saved jobs',

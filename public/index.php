@@ -11,6 +11,7 @@ require __DIR__ . "/../app/controllers/ProfileController.php";
 require __DIR__ . "/../app/controllers/MessageController.php";
 require __DIR__ . "/../app/controllers/OfferController.php";
 require __DIR__ . "/../app/controllers/ProjectController.php";
+require __DIR__ . "/../app/controllers/JobController.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
@@ -26,6 +27,7 @@ $router->register('/offers', 'OfferController', 'offers');
 $router->register('/offers/create', 'OfferController', 'create');
 $router->register('/offers/preview', 'OfferController', 'offer');
 $router->register('/projects/dashboard', 'ProjectController', 'projects');
+$router->register('/job/post', 'JobController', 'post');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 
