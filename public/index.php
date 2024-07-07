@@ -28,6 +28,7 @@ $router->register('/offers/create', 'OfferController', 'create');
 $router->register('/offers/preview', 'OfferController', 'offer');
 $router->register('/projects/dashboard', 'ProjectController', 'projects');
 $router->register('/job/post', 'JobController', 'post');
+$router->register('/job', 'JobController', 'job');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 

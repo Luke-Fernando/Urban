@@ -5,7 +5,7 @@
     <?php
     require __DIR__ . "/../../shared/head.php";
     ?>
-    <title>Urban | All offers</title>
+    <title>Urban | Post job</title>
 </head>
 
 <body class="bg-[var(--main-bg-yellow)]">

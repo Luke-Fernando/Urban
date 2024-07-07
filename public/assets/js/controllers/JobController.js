@@ -20,6 +20,8 @@ class JobController extends Controller {
     }
 
     post() { }
+
+    job() { }
 }
 
 export default JobController;
