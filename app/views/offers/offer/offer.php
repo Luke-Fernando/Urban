@@ -18,7 +18,7 @@
         </section>
         <section class="w-full h-auto flex flex-col justify-start items-start lg:px-20 box-border">
             <div class="w-full h-auto flex justify-start items-center">
-                <a href="/profile" class="w-10 aspect-square overflow-hidden flex justify-center items-center border border-[var(--main-font-color-20)]
+                <a href="/user/profile" class="w-10 aspect-square overflow-hidden flex justify-center items-center border border-[var(--main-font-color-20)]
                 hover:border-[var(--active-color-brown)] duration-75 ease-linear mr-4">
                     <img src="/assets/images/users/user.png" alt="creator's profile picture" class="min-w-full min-h-full object-cover">
                 </a>

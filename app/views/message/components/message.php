@@ -1,11 +1,11 @@
 <!-- message -->
 <div class="w-full h-auto flex justify-between items-start my-10">
-    <a href="/profile" class="w-10 aspect-square flex justify-center items-center overflow-hidden mr-4 border border-[var(--main-font-color-20)] 
+    <a href="/user/profile" class="w-10 aspect-square flex justify-center items-center overflow-hidden mr-4 border border-[var(--main-font-color-20)] 
                     hover:border-[var(--active-color-brown)]">
         <img src="/assets/images/users/<?php echo $data['profile_picture']; ?>" alt="user profile picture" class="min-w-full min-h-full object-cover">
     </a>
     <div class="w-full h-auto flex flex-col justify-start items-start">
-        <span class="text-base font-medium text-[var(--main-font-color-90)] relative"><a href="/profile"><?php echo $data['name']; ?></a>
+        <span class="text-base font-medium text-[var(--main-font-color-90)] relative"><a href="/user/profile"><?php echo $data['name']; ?></a>
             <span class="text-[var(--main-font-color-80)] text-xs font-normal ml-2"><?php echo $data['datetime']; ?></span>
             <span class="w-6 h-auto flex justify-center items-center absolute top-0 left-full">
                 <button data-message-option-trigger="<?php echo $data['id']; ?>" class="w-full h-auto text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 

@@ -3,14 +3,14 @@
 
 <head>
     <?php
-    require __DIR__ . "/../shared/head.php";
+    require __DIR__ . "/../../shared/head.php";
     ?>
     <title>Urban | Profile</title>
 </head>
 
 <body class="bg-[var(--main-bg-yellow)]">
     <?php
-    require __DIR__ . "/../shared/nav/nav-user.php";
+    require __DIR__ . "/../../shared/nav/nav-user.php";
     ?>
     <main class="container mx-auto h-auto box-border px-4 mt-10 mb-32">
         <section class="w-full h-auto flex flex-col sm:flex-row justify-start items-center sm:justify-between sm:items-start">
@@ -249,7 +249,7 @@
         </section>
     </main>
     <?php
-    require __DIR__ . "/../shared/footer.php";
+    require __DIR__ . "/../../shared/footer.php";
     ?>
 </body>
 

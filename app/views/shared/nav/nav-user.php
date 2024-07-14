@@ -161,7 +161,7 @@
                         'sub_links' => array(
                             array(
                                 'title' => 'Profile',
-                                'link' => '/profile',
+                                'link' => '/user/profile',
                             ),
                             array(
                                 'title' => 'Settings',

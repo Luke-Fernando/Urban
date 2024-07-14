@@ -2,7 +2,7 @@ import Controller from "../core/Controller.js";
 import Checkbox from "../helpers/Checkbox.js";
 import Dropdown from "../helpers/Dropdown.js";
 
-class ProfileController extends Controller {
+class UserController extends Controller {
     constructor() {
         super();
         let checkbox = new Checkbox();
@@ -13,6 +13,8 @@ class ProfileController extends Controller {
     }
 
     profile() { }
+
+    reviews() { }
 }
 
-export default ProfileController;
+export default UserController;
