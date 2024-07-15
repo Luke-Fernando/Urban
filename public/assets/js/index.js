@@ -23,6 +23,7 @@ router.register("/offers/preview", OfferController, "offer");
 router.register("/projects/dashboard", ProjectController, "projects");
 router.register("/job/post", JobController, "post");
 router.register("/job", JobController, "job");
+router.register("/job/apply", JobController, "apply");
 router.register("/user/reviews", UserController, "reviews");
 
 router.dispatch(window.location.pathname);

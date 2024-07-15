@@ -25,4 +25,14 @@ class JobController extends Controller
             exit;
         }
     }
+
+    public function apply()
+    {
+        if ($this->user != null) {
+            $this->view('job/apply/apply', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
 }
