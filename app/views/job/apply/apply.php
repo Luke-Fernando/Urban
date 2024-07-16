@@ -17,8 +17,9 @@
             <h3 class="text-lg font-medium text-[var(--main-font-color-90)]">Apply</h3>
         </section>
         <section class="flex flex-col justify-start items-start w-full box-border lg:px-20 my-10">
-            <div class="w-full h-auto border-t border-b border-[var(--main-font-color-20)] box-border py-5 flex justify-between items-start">
-                <div class="w-2/3 h-auto box-border px-3 flex flex-col justify-start items-start">
+            <div class="w-full h-auto border-t border-b border-[var(--main-font-color-20)] box-border py-5 flex flex-col md:flex-row justify-start md:justify-between items-start">
+                <div class="w-full md:w-2/3 h-auto box-border px-3 py-3 md:py-0 flex flex-col justify-start items-start md:border-r border-[var(--main-font-color-20)]
+                border-b md:border-b-0">
                     <a href="/job" class="text-base font-normal text-[var(--main-font-color-80)]">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla atque incidunt, eligendi minima dolor commodi dicta laboriosam accusantium voluptatibus assumenda!
                     </a>
@@ -51,8 +52,37 @@
                             </a>
                         </div>
                     </div>
+                    <a href="/job" class="text-sm font-normal text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)]
+                    duration-75 ease-linear underline mt-4">See job post</a>
                 </div>
-                <div class="w-1/3 h-auto bg-red-300">A</div>
+                <!--  -->
+                <div class="w-full md:w-1/3 h-auto px-3">
+                    <div class="w-full h-auto flex justify-start items-start mb-10 mt-3">
+                        <a href="#" class="w-8 aspect-square flex justify-center items-center overflow-hidden border border-[var(--main-font-color-20)]
+                hover:border-[var(--active-color-brown)] duration-75 ease-linear mr-3">
+                            <img src="/assets/images/users/client.png" alt="Review auther's profile pictire" class="min-w-full min-h-full object-cover">
+                        </a>
+                        <div class="w-full flex justify-start items-start flex-col">
+                            <a href="#" class="text-sm font-medium text-[var(--main-font-color-80)]">Bradley G. Medeiros</a>
+                            <a href="#" class="text-sm font-normal text-[var(--main-font-color-30)] mb-1">@bradley </a>
+                            <span class="text-sm font-normal text-[var(--main-font-color-80)]">From:
+                                <a href="#" class="text-sm font-medium text-[var(--main-font-color-80)]">Sri Lanka</a>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="w-auto h-auto">
+                        <p class="text-sm font-medium text-[var(--main-font-color-80)] my-2">Fixed price:
+                            <span class="text-sm font-normal">$150.00</span>
+                        </p>
+                        <p class="text-sm font-medium text-[var(--main-font-color-80)] my-2">Looking for:
+                            <span class="text-sm font-normal">5 freelancers</span>
+                        </p>
+                        <p class="text-sm font-medium text-[var(--main-font-color-80)] my-2">Experience:
+                            <span class="text-sm font-normal">Intermediate</span>
+                        </p>
+                    </div>
+                </div>
             </div>
             <label for="title" class="w-full h-auto my-4">
                 <p class="text-sm font-normal text-[var(--main-font-color-90)] mb-3">Title</p>
@@ -160,7 +190,7 @@
                 <div class="w-full h-auto flex justify-start items-center mt-16">
                     <button class="w-max h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
                     hover:bg-[var(--active-color-brown)] border border-[var(--main-font-color-20)] px-4 py-2 duration-75 ease-linear">
-                        Save offer
+                        Apply job
                     </button>
                 </div>
             </div>
