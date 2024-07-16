@@ -14,7 +14,7 @@
     ?>
     <main class="container h-auto mx-auto flex flex-col justify-start items-start mt-10 mb-32 box-border px-4">
         <section class="w-max h-auto mb-5">
-            <h3 class="text-lg font-medium text-[var(--main-font-color-90)]">All offers</h3>
+            <h3 class="text-lg font-medium text-[var(--main-font-color-90)]">My jobs</h3>
         </section>
         <section class="w-full h-auto flex flex-col justify-start items-start my-10 px-8 relative">
             <a href="/job/post" class="w-max h-auto flex justify-start items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
