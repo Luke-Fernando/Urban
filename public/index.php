@@ -30,6 +30,8 @@ $router->register('/projects/dashboard', 'ProjectController', 'projects');
 $router->register('/job/post', 'JobController', 'post');
 $router->register('/job', 'JobController', 'job');
 $router->register('/job/apply', 'JobController', 'apply');
+$router->register('/job/applications', 'JobController', 'applications');
+$router->register('/job/my-jobs', 'JobController', 'posted');
 $router->register('/user/reviews', 'UserController', 'reviews');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 

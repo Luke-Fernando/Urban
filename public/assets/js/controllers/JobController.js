@@ -29,6 +29,12 @@ class JobController extends Controller {
         this.removeMilestone();
     }
 
+    applications() { }
+
+    posted() {
+        console.log("posted");
+    }
+
     generateUniqueId() {
         const timestamp = new Date().getTime();
         return timestamp;

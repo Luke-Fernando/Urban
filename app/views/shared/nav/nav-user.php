@@ -59,8 +59,8 @@
                                 'link' => '/job/post',
                             ),
                             array(
-                                'title' => 'Saved jobs',
-                                'link' => '/saved-jobs',
+                                'title' => 'My jobs',
+                                'link' => '/job/my-jobs',
                             ),
                             array(
                                 'title' => 'Project dashboard',

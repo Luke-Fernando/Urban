@@ -35,4 +35,24 @@ class JobController extends Controller
             exit;
         }
     }
+
+    public function applications()
+    {
+        if ($this->user != null) {
+            $this->view('job/applications/applications', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
+
+    public function posted()
+    {
+        if ($this->user != null) {
+            $this->view('job/posted/posted', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
 }
