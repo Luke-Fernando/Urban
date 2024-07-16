@@ -26,6 +26,7 @@ router.register("/job", JobController, "job");
 router.register("/job/apply", JobController, "apply");
 router.register("/job/applications", JobController, "applications");
 router.register("/job/my-jobs", JobController, "posted");
+router.register("/job/application", JobController, "application");
 router.register("/user/reviews", UserController, "reviews");
 
 router.dispatch(window.location.pathname);

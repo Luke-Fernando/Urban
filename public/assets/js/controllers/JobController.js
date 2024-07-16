@@ -35,6 +35,10 @@ class JobController extends Controller {
         console.log("posted");
     }
 
+    application() {
+        console.log("application");
+    }
+
     generateUniqueId() {
         const timestamp = new Date().getTime();
         return timestamp;
