@@ -65,4 +65,14 @@ class JobController extends Controller
             exit;
         }
     }
+
+    public function room()
+    {
+        if ($this->user != null) {
+            $this->view('job/room/room', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
 }

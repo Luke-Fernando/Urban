@@ -92,12 +92,12 @@
             </div>
             <!-- milestones -->
             <div class="w-full h-auto flex flex-wrap justify-start items-center mt-16">
-                <button class="w-max h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
-                    hover:bg-[var(--active-color-brown)] active:scale-95 border border-[var(--main-font-color-20)] px-4 py-2 duration-75 ease-linear mx-3 my-3">
+                <button class="w-32 h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
+                    hover:bg-[var(--active-color-brown)] active:scale-95 border border-[var(--main-font-color-20)] py-2 duration-75 ease-linear mx-3 my-3">
                     Hire now
                 </button>
-                <button class="w-max h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--main-font-color-80)]
-                    hover:bg-[var(--main-font-color-90)] active:scale-95 border border-[var(--main-font-color-20)] px-4 py-2 duration-75 ease-linear mx-3 my-3">
+                <button class="w-32 h-auto flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--main-font-color-80)]
+                    hover:bg-[var(--main-font-color-90)] active:scale-95 border border-[var(--main-font-color-20)] py-2 duration-75 ease-linear mx-3 my-3">
                     Add to room
                 </button>
             </div>

@@ -39,6 +39,10 @@ class JobController extends Controller {
         console.log("application");
     }
 
+    room() {
+        console.log("room");
+    }
+
     generateUniqueId() {
         const timestamp = new Date().getTime();
         return timestamp;
