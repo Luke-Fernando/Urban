@@ -19,6 +19,6 @@ class Router
                 return;
             }
         }
-        echo "404";
+        header("Location: /404");
     }
 }

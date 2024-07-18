@@ -6,6 +6,7 @@ import OfferController from "./controllers/OfferController.js";
 import ProjectController from "./controllers/ProjectController.js";
 import JobController from "./controllers/JobController.js";
 import UserController from "./controllers/UserController.js";
+import Controller404 from "./controllers/Controller404.js";
 
 console.log(window.location.pathname);
 
@@ -29,5 +30,6 @@ router.register("/job/my-jobs", JobController, "posted");
 router.register("/job/application", JobController, "application");
 router.register("/job/room", JobController, "room");
 router.register("/user/reviews", UserController, "reviews");
+router.register("/404", Controller404, "error");
 
 router.dispatch(window.location.pathname);
