@@ -5,7 +5,7 @@
     <?php
     require __DIR__ . "/../shared/head.php";
     ?>
-    <title>Urban | Hiring room for This is the sample title</title>
+    <title>Urban | 404 page not found</title>
 </head>
 
 <body class="bg-[var(--main-bg-yellow)]">

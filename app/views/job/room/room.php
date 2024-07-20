@@ -25,64 +25,101 @@
                 See more
             </a>
         </section>
-        <!-- job post -->
-        <section class="w-full h-auto flex flex-col justify-start items-start my-10 px-8 relative hover:before:bg-[var(--active-color-brown)] before:duration-75 before:ease-linear
-        before:content-[''] before:absolute before:w-[1px] before:bg-[var(--main-font-color-20)] before:h-[60%] before:right-full before:top-1/2 before:-translate-y-1/2">
-            <span class="relative w-max h-auto mb-2">
-                <a href="/job/application" class="text-base font-medium text-[var(--main-font-color-90)] pr-2">This is the sample title</a>
-            </span>
-            <p class="text-xs font-normal text-[var(--main-font-color-80)] mb-2">08 Jul, 2024, 01.03 PM</p>
-            <div class="flex justify-start items-start mb-3">
-                <a href="/job/application" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
-                ease-linear">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-9 h-auto p-2">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 12V4h16v8m0 24v8H8v-8m36-12H24m-8 10V14m20 2l8 8l-8 8" />
-                    </svg>
-                </a>
+        <section class="w-full h-auto flex flex-col md:flex-row justify-between items-start">
+            <div class="w-full flex flex-col justify-start items-start box-border mr-28 border-b md:border-b-0 border-[var(--main-font-color-20)] mb-8 md:mb-0">
+                <!-- job post -->
+                <div class="w-full h-auto flex flex-col justify-start items-start px-8 py-4 relative hover:before:bg-[var(--active-color-brown)] before:duration-75 before:ease-linear
+                before:content-[''] before:absolute before:w-[1px] before:bg-[var(--main-font-color-20)] before:h-[60%] before:right-full before:top-1/2 before:-translate-y-1/2">
+                    <div class="w-full h-auto flex justify-start items-start mb-4">
+                        <a href="#" class="w-10 aspect-square overflow-hidden flex justify-center items-center mr-3">
+                            <img src="/assets/images/users/user.png" alt="freelancer's profile picture" class="min-w-full min-h-full object-cover">
+                        </a>
+                        <div class="w-full h-auto flex flex-col justify-start items-start">
+                            <a href="/user/profile" class="text-sm font-medium text-[var(--main-font-color-90)]">Luke Fernando</a>
+                            <a href="$" class="text-sm font-normal text-[var(--main-font-color-80)]">@<span class="text-sm font-normal text-[var(--main-font-color-80)]">lukefer</span></a>
+                        </div>
+                        <button class="w-auto h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)]
+                        duration-75 ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-6 h-auto">
+                                <path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="/job/application" class="text-sm font-normal text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+                        See application
+                    </a>
+                </div>
+                <!-- job post -->
+                <!-- job post -->
+                <div class="w-full h-auto flex flex-col justify-start items-start px-8 py-4 relative hover:before:bg-[var(--active-color-brown)] before:duration-75 before:ease-linear
+                before:content-[''] before:absolute before:w-[1px] before:bg-[var(--main-font-color-20)] before:h-[60%] before:right-full before:top-1/2 before:-translate-y-1/2">
+                    <div class="w-full h-auto flex justify-start items-start mb-4">
+                        <a href="#" class="w-10 aspect-square overflow-hidden flex justify-center items-center mr-3">
+                            <img src="/assets/images/users/user.png" alt="freelancer's profile picture" class="min-w-full min-h-full object-cover">
+                        </a>
+                        <div class="w-full h-auto flex flex-col justify-start items-start">
+                            <a href="/user/profile" class="text-sm font-medium text-[var(--main-font-color-90)]">Luke Fernando</a>
+                            <a href="$" class="text-sm font-normal text-[var(--main-font-color-80)]">@<span class="text-sm font-normal text-[var(--main-font-color-80)]">lukefer</span></a>
+                        </div>
+                        <button class="w-auto h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)]
+                        duration-75 ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-6 h-auto">
+                                <path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="/job/application" class="text-sm font-normal text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+                        See application
+                    </a>
+                </div>
+                <!-- job post -->
+                <!-- job post -->
+                <div class="w-full h-auto flex flex-col justify-start items-start px-8 py-4 relative hover:before:bg-[var(--active-color-brown)] before:duration-75 before:ease-linear
+                before:content-[''] before:absolute before:w-[1px] before:bg-[var(--main-font-color-20)] before:h-[60%] before:right-full before:top-1/2 before:-translate-y-1/2">
+                    <div class="w-full h-auto flex justify-start items-start mb-4">
+                        <a href="#" class="w-10 aspect-square overflow-hidden flex justify-center items-center mr-3">
+                            <img src="/assets/images/users/user.png" alt="freelancer's profile picture" class="min-w-full min-h-full object-cover">
+                        </a>
+                        <div class="w-full h-auto flex flex-col justify-start items-start">
+                            <a href="/user/profile" class="text-sm font-medium text-[var(--main-font-color-90)]">Luke Fernando</a>
+                            <a href="$" class="text-sm font-normal text-[var(--main-font-color-80)]">@<span class="text-sm font-normal text-[var(--main-font-color-80)]">lukefer</span></a>
+                        </div>
+                        <button class="w-auto h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)]
+                        duration-75 ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-6 h-auto">
+                                <path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="/job/application" class="text-sm font-normal text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+                        See application
+                    </a>
+                </div>
+                <!-- job post -->
             </div>
-            <a href="/job/application" class="text-sm font-normal text-[var(--main-font-color-80)] line-clamp-3 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae hic, assumenda sed perferendis ipsam beatae distinctio ipsum quibusdam unde.
-                Quia perferendis hic voluptate molestias suscipit tempora enim ipsa dolorum natus at, tenetur fugiat ratione laborum error odit tempore animi repellat
-                ea est, ex illo! Quibusdam ipsa saepe quisquam. Error commodi vel laudantium minima explicabo, a soluta vero dolores possimus iure ipsa, fuga
-                repudiandae? Distinctio debitis animi sapiente libero dicta nesciunt, iure, et consequatur accusamus labore ad pariatur ut? Deleniti, deserunt! Odio
-                repellendus reprehenderit nulla, quia nostrum, incidunt aliquid nihil perspiciatis expedita consectetur voluptate error impedit, magni quidem
-                dignissimos! Cupiditate!
-            </a>
-            <span class="text-sm font-medium text-[var(--main-font-color-80)]">From:
-                <a href="/user/profile" class="text-sm font-medium text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] duration-75 
-                ease-linear">@bradley</a>
-            </span>
-        </section>
-        <!-- job post -->
-        <!-- job post -->
-        <section class="w-full h-auto flex flex-col justify-start items-start my-10 px-8 relative hover:before:bg-[var(--active-color-brown)] before:duration-75 before:ease-linear
-        before:content-[''] before:absolute before:w-[1px] before:bg-[var(--main-font-color-20)] before:h-[60%] before:right-full before:top-1/2 before:-translate-y-1/2">
-            <span class="relative w-max h-auto mb-2">
-                <a href="/job/application" class="text-base font-medium text-[var(--main-font-color-90)] pr-2">This is the sample title</a>
-            </span>
-            <p class="text-xs font-normal text-[var(--main-font-color-80)] mb-2">08 Jul, 2024, 01.03 PM</p>
-            <div class="flex justify-start items-start mb-3">
-                <a href="/job/application" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
-                ease-linear">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-9 h-auto p-2">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 12V4h16v8m0 24v8H8v-8m36-12H24m-8 10V14m20 2l8 8l-8 8" />
-                    </svg>
-                </a>
+            <div class="w-full md:w-96 h-auto flex flex-col justify-start items-end border-l border-r border-[var(--main-font-color-20)] px-3 box-border">
+                <div class="w-full h-auto flex justify-between items-center my-1">
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">Total freelancers</p>
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">10</p>
+                </div>
+                <div class="w-full h-auto flex justify-between items-center my-1">
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">Average hourly rate($)</p>
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">12</p>
+                </div>
+                <div class="w-full h-auto flex justify-between items-center my-1">
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">Total fixed rate($)</p>
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">510</p>
+                </div>
+                <div class="w-full h-auto flex justify-between items-center my-1 border-t border-b border-[var(--main-font-color-20)] py-3">
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">Initial payment($)</p>
+                    <p class="text-sm font-medium text-[var(--main-font-color-80)]">510</p>
+                </div>
+                <button class="w-full h-auto mt-4 flex justify-center items-center text-sm font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
+                    hover:bg-[var(--active-color-brown)] border border-[var(--main-font-color-20)] py-2 duration-75 ease-linear">
+                    Hire now
+                </button>
             </div>
-            <a href="/job/application" class="text-sm font-normal text-[var(--main-font-color-80)] line-clamp-3 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae hic, assumenda sed perferendis ipsam beatae distinctio ipsum quibusdam unde.
-                Quia perferendis hic voluptate molestias suscipit tempora enim ipsa dolorum natus at, tenetur fugiat ratione laborum error odit tempore animi repellat
-                ea est, ex illo! Quibusdam ipsa saepe quisquam. Error commodi vel laudantium minima explicabo, a soluta vero dolores possimus iure ipsa, fuga
-                repudiandae? Distinctio debitis animi sapiente libero dicta nesciunt, iure, et consequatur accusamus labore ad pariatur ut? Deleniti, deserunt! Odio
-                repellendus reprehenderit nulla, quia nostrum, incidunt aliquid nihil perspiciatis expedita consectetur voluptate error impedit, magni quidem
-                dignissimos! Cupiditate!
-            </a>
-            <span class="text-sm font-medium text-[var(--main-font-color-80)]">From:
-                <a href="/user/profile" class="text-sm font-medium text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] duration-75 
-                ease-linear">@bradley</a>
-            </span>
         </section>
-        <!-- job post -->
     </main>
     <?php
     require __DIR__ . "/../../shared/footer.php";
