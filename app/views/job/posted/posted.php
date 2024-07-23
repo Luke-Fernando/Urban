@@ -32,25 +32,32 @@
             </span>
             <p class="text-xs font-normal text-[var(--main-font-color-80)] mb-2">08 Jul, 2024, 01.03 PM</p>
             <div class="flex justify-start items-start mb-3">
-                <button class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <button title="Delete" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M9 17h2V8H9zm4 0h2V8h-2zm-8 4V6H4V4h5V3h6v1h5v2h-1v15z"></path>
                     </svg>
                 </button>
-                <a href="/job" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <a href="/job" title="Job post" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-9 h-auto p-2">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 12V4h16v8m0 24v8H8v-8m36-12H24m-8 10V14m20 2l8 8l-8 8" />
                     </svg>
                 </a>
-                <a href="/job/applications" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
-                ease-linear">
+                <a href="/job/dashboard" title="Project dashboard" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] 
+                hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
+                        <path fill="currentColor" d="M1 1v10h22V1Zm12 6H4V5h9Zm3 0a1 1 0 1 1 1-1a1 1 0 0 1-1 1m3 0a1 1 0 1 1 1-1a1 1 0 0 1-1 1m3.69 11.37l1.14-1l-1-1.73l-1.45.49a3.7 3.7 0 0 0-1.08-.63L20 14h-2l-.3 1.49a3.7 3.7 0 0 0-1.08.63l-1.45-.49l-1 1.73l1.14 1a3.3 3.3 0 0 0 0 1.26l-1.14 1l1 1.73l1.45-.49a3.7 3.7 0 0 0 1.08.63L18 24h2l.3-1.49a3.7 3.7 0 0 0 1.08-.63l1.45.49l1-1.73l-1.14-1a3.4 3.4 0 0 0 0-1.27M19 21a2 2 0 1 1 2-2a2.006 2.006 0 0 1-2 2" />
+                        <path fill="currentColor" d="M12 19H4v-2h8.294a7 7 0 0 1 3.114-4H1v10h12.26A6.96 6.96 0 0 1 12 19" />
+                    </svg>
+                </a>
+                <a href="/job/applications" title="All applications" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] 
+                hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1M8 7v2h8V7zm0 4v2h8v-2zm0 4v2h5v-2z" />
                     </svg>
                 </a>
-                <a href="/job/room" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <a href="/job/room" title="Hiring room" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M12.215 5.217a2.227 2.227 0 1 0-4.455 0a2.227 2.227 0 0 0 4.455 0M2.515 12h2.99V9.014l.008-.18c.026-.297.118-.575.26-.82H3.016l-.117.007a1 1 0 0 0-.883.993V11.5a.5.5 0 0 0 .5.5m15.475-.5a.5.5 0 0 1-.5.5h-3.016V9.014l-.006-.149a2 2 0 0 0-.262-.851h2.784a1 1 0 0 1 .993.884l.007.116zm-4.523-2.602a1 1 0 0 0-.994-.884H7.506l-.117.007a1 1 0 0 0-.883.993V12h6.969V9.014zm1.508-5.28a1.913 1.913 0 1 1 0 3.826a1.913 1.913 0 0 1 0-3.827M6.929 5.53a1.913 1.913 0 1 0-3.826 0a1.913 1.913 0 0 0 3.826 0M2.5 13a.5.5 0 0 0-.5.5v1A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-1a.5.5 0 0 0-.5-.5z" />
@@ -75,25 +82,32 @@
             </span>
             <p class="text-xs font-normal text-[var(--main-font-color-80)] mb-2">08 Jul, 2024, 01.03 PM</p>
             <div class="flex justify-start items-start mb-3">
-                <button class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <button title="Delete" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M9 17h2V8H9zm4 0h2V8h-2zm-8 4V6H4V4h5V3h6v1h5v2h-1v15z"></path>
                     </svg>
                 </button>
-                <a href="/job" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <a href="/job" title="Job post" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-9 h-auto p-2">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 12V4h16v8m0 24v8H8v-8m36-12H24m-8 10V14m20 2l8 8l-8 8" />
                     </svg>
                 </a>
-                <a href="/job/applications" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
-                ease-linear">
+                <a href="/job/dashboard" title="Project dashboard" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] 
+                hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
+                        <path fill="currentColor" d="M1 1v10h22V1Zm12 6H4V5h9Zm3 0a1 1 0 1 1 1-1a1 1 0 0 1-1 1m3 0a1 1 0 1 1 1-1a1 1 0 0 1-1 1m3.69 11.37l1.14-1l-1-1.73l-1.45.49a3.7 3.7 0 0 0-1.08-.63L20 14h-2l-.3 1.49a3.7 3.7 0 0 0-1.08.63l-1.45-.49l-1 1.73l1.14 1a3.3 3.3 0 0 0 0 1.26l-1.14 1l1 1.73l1.45-.49a3.7 3.7 0 0 0 1.08.63L18 24h2l.3-1.49a3.7 3.7 0 0 0 1.08-.63l1.45.49l1-1.73l-1.14-1a3.4 3.4 0 0 0 0-1.27M19 21a2 2 0 1 1 2-2a2.006 2.006 0 0 1-2 2" />
+                        <path fill="currentColor" d="M12 19H4v-2h8.294a7 7 0 0 1 3.114-4H1v10h12.26A6.96 6.96 0 0 1 12 19" />
+                    </svg>
+                </a>
+                <a href="/job/applications" title="All applications" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] 
+                hover:text-[var(--main-font-color-90)] duration-75 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1M8 7v2h8V7zm0 4v2h8v-2zm0 4v2h5v-2z" />
                     </svg>
                 </a>
-                <a href="/job/room" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
+                <a href="/job/room" title="Hiring room" class="w-max h-auto flex justify-center items-center text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] duration-75
                 ease-linear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="w-9 h-auto p-2">
                         <path fill="currentColor" d="M12.215 5.217a2.227 2.227 0 1 0-4.455 0a2.227 2.227 0 0 0 4.455 0M2.515 12h2.99V9.014l.008-.18c.026-.297.118-.575.26-.82H3.016l-.117.007a1 1 0 0 0-.883.993V11.5a.5.5 0 0 0 .5.5m15.475-.5a.5.5 0 0 1-.5.5h-3.016V9.014l-.006-.149a2 2 0 0 0-.262-.851h2.784a1 1 0 0 1 .993.884l.007.116zm-4.523-2.602a1 1 0 0 0-.994-.884H7.506l-.117.007a1 1 0 0 0-.883.993V12h6.969V9.014zm1.508-5.28a1.913 1.913 0 1 1 0 3.826a1.913 1.913 0 0 1 0-3.827M6.929 5.53a1.913 1.913 0 1 0-3.826 0a1.913 1.913 0 0 0 3.826 0M2.5 13a.5.5 0 0 0-.5.5v1A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-1a.5.5 0 0 0-.5-.5z" />

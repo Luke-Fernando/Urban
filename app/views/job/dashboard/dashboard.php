@@ -3,18 +3,18 @@
 
 <head>
     <?php
-    require __DIR__ . "/../shared/head.php";
+    require __DIR__ . "/../../shared/head.php";
     ?>
-    <title>Urban | Project dashboard</title>
+    <title>Urban | Job dashboard</title>
 </head>
 
 <body class="bg-[var(--main-bg-yellow)]">
     <?php
-    require __DIR__ . "/../shared/nav/nav-user.php";
+    require __DIR__ . "/../../shared/nav/nav-user.php";
     ?>
     <main class="container h-auto mx-auto flex flex-col justify-start items-start mt-10 mb-32 box-border px-4">
         <section class="w-max h-auto mb-5">
-            <h3 class="text-lg font-medium text-[var(--main-font-color-90)]">Ongoing projects</h3>
+            <h3 class="text-lg font-medium text-[var(--main-font-color-90)]">Project dashboard</h3>
         </section>
         <section class="w-full h-auto flex flex-col justify-start items-start my-10 lg:px-28 relative">
             <!-- milestone -->
@@ -42,15 +42,6 @@
                     </div>
                     <div class="w-max h-auto flex justify-start items-center">
                         <p data-project-element="id" class="text-base font-normal text-[var(--main-font-color-80)] mr-3">05.45.38</p>
-                        <button data-project-element="id" class="w-10 h-auto text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] active:scale-95 duration-75
-                        ease-linear">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="hidden w-full h-auto">
-                                <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2V5a2 2 0 0 0-2-2m-8 13H9V8h2zm4 0h-2V8h2z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-full h-auto">
-                                <path fill="currentColor" d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2m-9 13V8l5 4" />
-                            </svg>
-                        </button>
                     </div>
                 </div>
                 <div data-project-expand-content="id" data-show="false" class="w-full h-auto flex flex-col md:flex-row justify-start items-start px-4
@@ -132,16 +123,10 @@
                                     </p>
                                 </div>
                                 <div class="w-full h-auto flex justify-start items-start mt-5">
-                                    <button title="Expand timeline" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
+                                    <button title="Request a revision" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
                                     active:scale-95 duration-75 ease-linear mx-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-8 h-auto">
-                                            <path fill="currentColor" d="M15 3H9V1h6zm-2 16c0 1.03.26 2 .71 2.83c-.55.11-1.12.17-1.71.17a9 9 0 0 1 0-18c2.12 0 4.07.74 5.62 2l1.42-1.44c.51.44.96.9 1.41 1.41l-1.42 1.42A8.96 8.96 0 0 1 21 13v.35c-.64-.22-1.3-.35-2-.35c-3.31 0-6 2.69-6 6m0-12h-2v7h2zm7 11v-3h-2v3h-3v2h3v3h2v-3h3v-2z" />
-                                        </svg>
-                                    </button>
-                                    <button title="Mark as completed" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
-                                    active:scale-95 duration-75 ease-linear mx-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="w-8 h-auto">
-                                            <path fill="currentColor" d="M8.5 2a1.5 1.5 0 0 0-1.415 1H5.5A1.5 1.5 0 0 0 4 4.5v12A1.5 1.5 0 0 0 5.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 14.5 3h-1.585A1.5 1.5 0 0 0 11.5 2zM8 3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m4.854 6.354l-3.5 3.5a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L9 12.293l3.146-3.147a.5.5 0 0 1 .708.708" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="w-8 h-auto">
+                                            <path fill="currentColor" d="M15 3v2.05C9.402 5.559 5 10.274 5 16c0 6.065 4.935 11 11 11h11V16a10.97 10.97 0 0 0-3.914-8.4l-1.863 1.086C23.505 10.32 25 12.986 25 16c0 4.962-4.037 9-9 9s-9-4.038-9-9c0-4.624 3.506-8.442 8-8.941V10l6-3.5zm1 10a3 3 0 0 0 0 6a3 3 0 0 0 0-6" />
                                         </svg>
                                     </button>
                                 </div>
@@ -179,15 +164,6 @@
                     </div>
                     <div class="w-max h-auto flex justify-start items-center">
                         <p data-project-element="id-1" class="text-base font-normal text-[var(--main-font-color-80)] mr-3">05.45.38</p>
-                        <button data-project-element="id-1" class="w-10 h-auto text-[var(--active-color-brown-low)] hover:text-[var(--active-color-brown)] active:scale-95 duration-75
-                        ease-linear">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="hidden w-full h-auto">
-                                <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2V5a2 2 0 0 0-2-2m-8 13H9V8h2zm4 0h-2V8h2z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-full h-auto">
-                                <path fill="currentColor" d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2m-9 13V8l5 4" />
-                            </svg>
-                        </button>
                     </div>
                 </div>
                 <div data-project-expand-content="id-1" data-show="false" class="w-full h-auto flex flex-col md:flex-row justify-start items-start px-4
@@ -269,16 +245,10 @@
                                     </p>
                                 </div>
                                 <div class="w-full h-auto flex justify-start items-start mt-5">
-                                    <button title="Expand timeline" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
+                                    <button title="Request a revision" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
                                     active:scale-95 duration-75 ease-linear mx-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-8 h-auto">
-                                            <path fill="currentColor" d="M15 3H9V1h6zm-2 16c0 1.03.26 2 .71 2.83c-.55.11-1.12.17-1.71.17a9 9 0 0 1 0-18c2.12 0 4.07.74 5.62 2l1.42-1.44c.51.44.96.9 1.41 1.41l-1.42 1.42A8.96 8.96 0 0 1 21 13v.35c-.64-.22-1.3-.35-2-.35c-3.31 0-6 2.69-6 6m0-12h-2v7h2zm7 11v-3h-2v3h-3v2h3v3h2v-3h3v-2z" />
-                                        </svg>
-                                    </button>
-                                    <button title="Mark as completed" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
-                                    active:scale-95 duration-75 ease-linear mx-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="w-8 h-auto">
-                                            <path fill="currentColor" d="M8.5 2a1.5 1.5 0 0 0-1.415 1H5.5A1.5 1.5 0 0 0 4 4.5v12A1.5 1.5 0 0 0 5.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 14.5 3h-1.585A1.5 1.5 0 0 0 11.5 2zM8 3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m4.854 6.354l-3.5 3.5a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L9 12.293l3.146-3.147a.5.5 0 0 1 .708.708" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="w-8 h-auto">
+                                            <path fill="currentColor" d="M15 3v2.05C9.402 5.559 5 10.274 5 16c0 6.065 4.935 11 11 11h11V16a10.97 10.97 0 0 0-3.914-8.4l-1.863 1.086C23.505 10.32 25 12.986 25 16c0 4.962-4.037 9-9 9s-9-4.038-9-9c0-4.624 3.506-8.442 8-8.941V10l6-3.5zm1 10a3 3 0 0 0 0 6a3 3 0 0 0 0-6" />
                                         </svg>
                                     </button>
                                 </div>
@@ -294,7 +264,7 @@
         </section>
     </main>
     <?php
-    require __DIR__ . "/../shared/footer.php";
+    require __DIR__ . "/../../shared/footer.php";
     ?>
 </body>
 

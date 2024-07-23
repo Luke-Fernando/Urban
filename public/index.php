@@ -35,6 +35,7 @@ $router->register('/job/applications', 'JobController', 'applications');
 $router->register('/job/my-jobs', 'JobController', 'posted');
 $router->register('/job/application', 'JobController', 'application');
 $router->register('/job/room', 'JobController', 'room');
+$router->register('/job/dashboard', 'JobController', 'dashboard');
 $router->register('/user/reviews', 'UserController', 'reviews');
 $router->register('/404', 'Controller404', 'error');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

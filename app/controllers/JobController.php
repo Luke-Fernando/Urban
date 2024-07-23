@@ -75,4 +75,14 @@ class JobController extends Controller
             exit;
         }
     }
+
+    public function dashboard()
+    {
+        if ($this->user != null) {
+            $this->view('job/dashboard/dashboard', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
 }
