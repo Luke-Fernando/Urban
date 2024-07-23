@@ -111,16 +111,22 @@
                                 </div>
                                 <div class="w-[70%] h-auto flex flex-col justify-start items-start mb-5">
                                     <div class="w-full h-1 bg-[var(--main-font-color-20)] flex justify-start items-center relative">
-                                        <span class="w-1/3 h-full bg-[var(--active-color-brown)]"></span>
+                                        <span class="w-full h-full bg-[var(--active-color-brown)]"></span>
                                     </div>
                                     <div class="w-full h-auto flex justify-end items-center">
-                                        <p class="text-sm text-[var(--main-font-color-80)] font-normal">1 month and 5 days left</p>
+                                        <p class="text-sm text-[var(--main-font-color-80)] font-normal">0 hours left</p>
                                     </div>
                                 </div>
                                 <div class="w-full h-auto flex justify-start items-start">
                                     <p class="text-sm font-medium text-[var(--main-font-color-80)]">Total worked:
                                         <span class="text-sm font-normal">5 hours, 20 minutes</span>
                                     </p>
+                                </div>
+                                <div class="w-full h-auto flex justify-start items-start">
+                                    <button class="w-max h-auto flex justify-center items-center text-xs font-medium text-[var(--bg-white-low)] bg-[var(--active-color-brown-low)]
+                                    hover:bg-[var(--active-color-brown)] active:scale-95 border border-[var(--main-font-color-20)] px-4 py-2 duration-75 ease-linear">
+                                        Pay now
+                                    </button>
                                 </div>
                                 <div class="w-full h-auto flex justify-start items-start mt-5">
                                     <button title="Request a revision" class="text-[var(--main-font-color-80)] hover:text-[var(--main-font-color-90)] 
