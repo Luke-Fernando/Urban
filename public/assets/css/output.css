@@ -1818,10 +1818,6 @@ input:checked + .toggle-bg {
   width: 100vw;
 }
 
-.w-\[100\%\] {
-  width: 100%;
-}
-
 .min-w-full {
   min-width: 100%;
 }
@@ -1853,6 +1849,10 @@ input:checked + .toggle-bg {
 
 .max-w-\[500px\] {
   max-width: 500px;
+}
+
+.max-w-\[750px\] {
+  max-width: 750px;
 }
 
 .max-w-\[900px\] {

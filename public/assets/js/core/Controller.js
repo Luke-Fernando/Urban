@@ -1,4 +1,5 @@
 import Alert from "../helpers/Alert.js";
+import Cookies from "../controllers/CookiesController.js";
 import Navbar from "../helpers/Navbar.js";
 import Spinner from "../helpers/Spinner.js";
 
@@ -17,10 +18,15 @@ class Controller {
     loadPage() {
         this.pageLoader.pageLoadSpinner(1000, () => {
             let storedAlert = localStorage.getItem("alert");
+            let isCookies = localStorage.getItem("cookies");
             if (storedAlert != null) {
                 this.alert.alert(storedAlert, 3000, () => {
                     localStorage.removeItem("alert");
                 });
+            }
+            if (isCookies == null) {
+                let cookie = new Cookies();
+                cookie.askCookies();
             }
         })
     }

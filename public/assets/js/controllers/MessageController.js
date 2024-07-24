@@ -123,7 +123,18 @@ class MessageController extends Controller {
 
         deleteMessageButtons.forEach(button => {
             button.addEventListener("click", () => {
-                this.confirmation.askForConfirmation("Are you sure you want to delete this message?", "Delete", "Cancel");
+                this.confirmation.askForConfirmation({
+                    "path": "/assets/js/views/message/confirm.php",
+                    "message": "Are you sure you want to delete this message?",
+                    "true": {
+                        "textContent": "Delete",
+                        "message": "delete message"
+                    },
+                    "false": {
+                        "textContent": "Cancel",
+                        "message": "cancel message delete"
+                    }
+                });
             })
         });
 

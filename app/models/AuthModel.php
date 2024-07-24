@@ -2,6 +2,15 @@
 class AuthModel extends Model
 {
 
+    public function manage_cookie($cookie_name, $cookie_value, $expire_time)
+    {
+        setcookie($cookie_name, $cookie_value, [
+            'expires' => $expire_time,
+            'path' => '/',
+            'samesite' => 'Lax',
+        ]);
+    }
+
     public function signin_process($data = [])
     {
         $response = [
@@ -19,6 +28,11 @@ class AuthModel extends Model
         if ($users_resultset_num == 1) {
             $users_data = $users_resultset->fetch_assoc();
             $_SESSION['user'] = $users_data;
+            $coockie_preference = $_COOKIE['cookies'];
+            if ($coockie_preference == "true") {
+                $this->manage_cookie("user", $users_data['username'], time() + (60 * 60 * 24 * 30));
+                $this->manage_cookie("password", $users_data['password'], time() + (60 * 60 * 24 * 30));
+            }
             $response['message'] = "success";
         } else if ($users_resultset_num == 0) {
             $response['message'] = "Invalid username or password";
@@ -59,5 +73,18 @@ class AuthModel extends Model
         if ($response['message'] != null) {
             echo json_encode($response);
         }
+    }
+
+    public function signout_process()
+    {
+        session_destroy();
+        $this->manage_cookie("user", null, time() - (60 * 60 * 24 * 30));
+        $this->manage_cookie("password", null, time() - (60 * 60 * 24 * 30));
+        header("Location: /home");
+        // $response = [
+        //     'status' => 'success',
+        //     'message' => "Successfully signed out"
+        // ];
+        // echo json_encode($response);
     }
 }

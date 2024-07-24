@@ -90,6 +90,11 @@
                     include __DIR__ . '/components/password_input.php';
                 }
                 ?>
+                <div class="w-full h-auto flex justify-end items-center px-2">
+                    <button id="forgot-password-btn" class="text-sm text-[var(--main-font-color-80)] underline hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+                        Forgot password
+                    </button>
+                </div>
                 <button id="signin" class="w-full md:w-max py-2 px-2 bg-[var(--active-color-brown-low)] font-normal md:font-medium text-[var(--bg-white-low)] 
                 text-sm border border-[var(--main-font-color-20)] hover:bg-[var(--active-color-brown)] hover:border-[--main-font-color-30] 
                 ease-linear duration-75 mt-10 mx-2 active:scale-95">

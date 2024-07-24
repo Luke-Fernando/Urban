@@ -136,4 +136,14 @@ class AuthController extends Controller
             echo json_encode($response);
         }
     }
+
+    public function signout_process()
+    {
+        // $response = [
+        //     'status' => 'success',
+        //     'message' => null
+        // ];
+        $this->auth_model->signout_process();
+        // echo json_encode($response);
+    }
 }
