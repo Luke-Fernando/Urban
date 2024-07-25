@@ -21,6 +21,7 @@ $router->register('/home', 'HomeController', 'home');
 $router->register('/dashboard', 'HomeController', 'home');
 $router->register('/api/auth/signin', 'AuthController', 'signin_process');
 $router->register('/api/auth/signup', 'AuthController', 'signup_process');
+$router->register('/api/auth/forgot-password', 'AuthController', 'forgot_password');
 $router->register('/signin', 'AuthController', 'signin');
 $router->register('/signup', 'AuthController', 'signup');
 $router->register('/logout', 'AuthController', 'signout_process');

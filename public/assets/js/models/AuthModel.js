@@ -8,6 +8,10 @@ class AuthModel extends Model {
     signup() {
         return this.post("/api/auth/signup");
     }
+
+    forgotPassword() {
+        return this.post("/api/auth/forgot-password");
+    }
 }
 
 export default AuthModel;

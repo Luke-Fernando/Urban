@@ -146,4 +146,31 @@ class AuthController extends Controller
         $this->auth_model->signout_process();
         // echo json_encode($response);
     }
+
+    public function forgot_password()
+    {
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        if (isset($_POST["email_or_username"]) && !empty($_POST["email_or_username"])) {
+            if (filter_var($_POST['email_or_username'], FILTER_VALIDATE_EMAIL)) {
+                $email = $_POST['email_or_username'];
+                $username = null;
+            } else {
+                $username = $_POST['email_or_username'];
+                $email = null;
+            }
+            $data = [
+                'email' => $email,
+                'username' => $username,
+            ];
+            $this->auth_model->forgot_password($data);
+        } else {
+            $response['message'] = "Email or username is required";
+        }
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
+    }
 }

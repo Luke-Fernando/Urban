@@ -78,6 +78,7 @@ class AuthController extends Controller {
                 }
             });
         });
+        this.forgotPassword();
     }
 
     signup() {
@@ -119,6 +120,41 @@ class AuthController extends Controller {
                 }
             });
         })
+    }
+
+    forgotPassword() {
+        const forgotPasswordButton = document.getElementById("forgot-password-btn");
+        const forgotPassword = document.getElementById("forgot-password");
+        const forgotPasswordForm = document.getElementById("forgot-password-form");
+        const sendResetToken = document.getElementById("send-reset-token");
+        const emailOrUsername = document.getElementById("forgot-email-or-username");
+        forgotPasswordButton.addEventListener("click", () => {
+            forgotPassword.classList.remove("hidden");
+            forgotPassword.classList.add("flex");
+        });
+        document.addEventListener("click", (event) => {
+            if (!forgotPasswordForm.contains(event.target) && !forgotPasswordButton.contains(event.target)) {
+                forgotPassword.classList.add("hidden");
+                forgotPassword.classList.remove("flex");
+            }
+        });
+        sendResetToken.addEventListener("click", async () => {
+            this.processLoader.appendProcessLoadSpinner();
+            this.authModel.addValue("email_or_username", emailOrUsername.value);
+            let responseJSON = await this.authModel.forgotPassword();
+            this.processLoader.removeProcessLoadSpinner(1000, () => {
+                let response = JSON.parse(responseJSON);
+                if (response.status == "success") {
+                    if (response.message == "success") {
+                        this.alert.alert("Please check your email inbox");
+                    } else {
+                        this.alert.alert(response.message);
+                    }
+                } else {
+                    this.alert.alert("Something went wrong");
+                }
+            });
+        });
     }
 }
 

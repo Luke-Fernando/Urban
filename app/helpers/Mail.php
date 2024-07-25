@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
-require __DIR__ . '/Environment.php';
+require_once __DIR__ . '/Environment.php';
 
 class Mail
 {
@@ -17,7 +17,7 @@ class Mail
     {
         $this->environment = new Environment();
         $this->mail = new PHPMailer(true);
-        $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $this->mail->SMTPDebug = 0;
         $this->mail->isSMTP();
         $this->mail->Host       = $this->environment->get_env('MAIL_HOST');
         $this->mail->SMTPAuth   = true;
@@ -29,26 +29,34 @@ class Mail
 
     public function send_mail($receiver_address, $receiver_name, $subject, $data = [], $file)
     {
-        try {
-            $this->mail->setFrom($this->environment->get_env('MAIL_USERNAME'), 'Urban Team');
-            $this->mail->addAddress($receiver_address, $receiver_name);
+        // try {
+        //     $this->mail->setFrom($this->environment->get_env('MAIL_USERNAME'), 'Urban Team');
+        //     $this->mail->addAddress($receiver_address, $receiver_name);
 
-            $this->mail->isHTML(true);
-            $this->mail->Subject = $subject;
-            $this->mail->Body    = $this->generate_html($data, $file);
+        //     $this->mail->isHTML(true);
+        //     $this->mail->Subject = $subject;
+        //     $this->mail->Body    = $this->generate_html($data, $file);
 
-            $this->mail->send();
-            echo 'Please check your inbox';
-        } catch (Exception $e) {
-            echo "Message could not be sent";
-        }
+        //     $this->mail->send();
+        //     // echo 'Please check your inbox';
+        // } catch (Exception $e) {
+        //     // echo "Message could not be sent";
+        // }
+        $this->mail->setFrom($this->environment->get_env('MAIL_USERNAME'), 'Urban Team');
+        $this->mail->addAddress($receiver_address, $receiver_name);
+
+        $this->mail->isHTML(true);
+        $this->mail->Subject = $subject;
+        $this->mail->Body    = $this->generate_html($data, $file);
+
+        $this->mail->send();
     }
 
     public function generate_html($date = [], $file)
     {
         ob_start();
         extract($date);
-        require __DIR__ . '/../views/mail/' . $file . '.php' . ``;
+        require __DIR__ . '/../views/mail/' . $file . '.php' . '';
         $mail_body = ob_get_clean();
         return $mail_body;
     }

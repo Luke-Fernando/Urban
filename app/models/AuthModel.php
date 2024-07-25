@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . "/../helpers/Mail.php";
+
 class AuthModel extends Model
 {
 
@@ -81,10 +83,43 @@ class AuthModel extends Model
         $this->manage_cookie("user", null, time() - (60 * 60 * 24 * 30));
         $this->manage_cookie("password", null, time() - (60 * 60 * 24 * 30));
         header("Location: /home");
-        // $response = [
-        //     'status' => 'success',
-        //     'message' => "Successfully signed out"
-        // ];
-        // echo json_encode($response);
+    }
+
+    private function generate_reset_token()
+    {
+        $reset_code = uniqid(true) . uniqid(true) . uniqid(true);
+        $token = substr($reset_code, 0, 20);
+        return $token;
+    }
+
+    public function forgot_password($data = [])
+    {
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        extract($data);
+        if ($email == null) {
+            $users_resultset = $this->search("SELECT * FROM `users` WHERE `username` = ?;", [$username]);
+        } else if ($email != null) {
+            $users_resultset = $this->search("SELECT * FROM `users` WHERE `email` = ?;", [$email]);
+        }
+        $users_resultset_num = $users_resultset->num_rows;
+        if ($users_resultset_num == 1) {
+            $users_data = $users_resultset->fetch_assoc();
+            $user_email = $users_data['email'];
+            $mail = new Mail();
+            $token = $this->generate_reset_token();
+            $mail->send_mail($user_email, $users_data['first_name'], "Requested a password reset", [
+                "name" => $users_data['first_name'],
+                "reset_token" => $token
+            ], "reset_token");
+            $response['message'] = "success";
+        } else {
+            $response['message'] = "Invalid email or username";
+        }
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
     }
 }

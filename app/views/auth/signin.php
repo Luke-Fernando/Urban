@@ -13,6 +13,54 @@
     require __DIR__ . "/../shared/nav/nav-guest.php";
     ?>
     <main class="container mx-auto mt-10 mb-32 relative">
+        <section id="forgot-password" class="w-screen h-screen hidden justify-center items-start z-[999] bg-[var(--main-font-color-20)] fixed top-0 left-0">
+            <div id="forgot-password-form" class="w-[90%] max-w-[850px] h-auto bg-[var(--main-bg-yellow)] flex flex-col justify-start items-start px-5 py-10 box-border mt-[15vh]">
+                <h1 class="text-[var(--main-font-color-90)] font-medium text-base mb-4 px-2">Forgot password</h1>
+                <?php
+                $regular_form_inputs = [
+                    [
+                        "input_name" => "Email or username",
+                        "input_id" => "forgot-email-or-username",
+                        "input_type" => "text",
+                        "full_width" => true
+                    ]
+                ];
+
+                foreach ($regular_form_inputs as $input) {
+                    extract($input);
+                    include __DIR__ . '/components/regular_input.php';
+                }
+                ?>
+                <div class="w-full h-auto flex justify-center items-center">
+                    <?php
+                    $regular_form_inputs = [
+                        [
+                            "input_name" => "Reset token",
+                            "input_id" => "reset-token",
+                            "input_type" => "text",
+                            "full_width" => true
+                        ]
+                    ];
+
+                    foreach ($regular_form_inputs as $input) {
+                        extract($input);
+                        include __DIR__ . '/components/regular_input.php';
+                    }
+                    ?>
+                </div>
+                <div class="w-full h-auto flex justify-start items-center px-2">
+                    <button id="send-reset-token" class="text-sm underline font-normal text-[var(--main-font-color-80)] hover:text-[var(--active-color-brown)] duration-75
+                    ease-linear">
+                        Send reset token
+                    </button>
+                </div>
+                <button id="reset-password" class="w-full md:w-max py-2 px-2 bg-[var(--active-color-brown-low)] font-normal md:font-medium text-[var(--bg-white-low)] 
+                text-sm border border-[var(--main-font-color-20)] hover:bg-[var(--active-color-brown)] hover:border-[--main-font-color-30] 
+                ease-linear duration-75 mt-10 mx-2 active:scale-95">
+                    Reset password
+                </button>
+            </div>
+        </section>
         <header class="w-full flex justify-center items-center">
             <h1 class="text-[var(--main-font-color-90)] font-medium text-xl md:text-2xl">Sign in to your account</h1>
         </header>
