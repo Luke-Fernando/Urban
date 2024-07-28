@@ -23,6 +23,8 @@ $router->register('/api/auth/signin', 'AuthController', 'signin_process');
 $router->register('/api/auth/signup', 'AuthController', 'signup_process');
 $router->register('/api/auth/forgot-password', 'AuthController', 'forgot_password');
 $router->register('/signin', 'AuthController', 'signin');
+$router->register('/reset-password', 'AuthController', 'reset_password');
+$router->register('/api/auth/reset-password', 'AuthController', 'reset_password_process');
 $router->register('/signup', 'AuthController', 'signup');
 $router->register('/logout', 'AuthController', 'signout_process');
 $router->register('/user/profile', 'UserController', 'profile');

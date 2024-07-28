@@ -19,7 +19,7 @@
         <section class="w-full flex justify-center items-center my-10 md:my-20">
             <div id="signup-options" class="w-full px-3 flex flex-col justify-center items-center">
                 <button id="google" class="max-w-[430px] w-full h-[50px] flex justify-center items-center bg-[var(--bg-white-low)] border border-[var(--main-font-color-20)] relative 
-            hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
+                hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
                     <p class="font-normal text-[var(--main-font-color-90)] text-base">Continue with Google</p>
                     <div class="w-[30px] h-full flex justify-center items-center absolute left-3 top-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-full h-auto">
@@ -31,7 +31,7 @@
                     </div>
                 </button>
                 <button id="facebook" class="max-w-[430px] w-full h-[50px] flex justify-center items-center bg-[var(--bg-white-low)] border border-[var(--main-font-color-20)] relative 
-            hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
+                hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
                     <p class="font-normal text-[var(--main-font-color-90)] text-base">Continue with Facebook</p>
                     <div class="w-[30px] h-full flex justify-center items-center absolute left-3 top-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" class="w-full h-auto">

@@ -7,13 +7,14 @@ class Database
 
     public function __construct()
     {
-        $this->environment = new Environment();
+        $this->environment = null;
         $this->connection;
     }
 
     public function setConnection()
     {
         if (!isset($this->connection)) {
+            $this->environment = new Environment();
             $host = $this->environment->get_env("DB_HOST");
             $username = $this->environment->get_env("DB_USERNAME");
             $password = $this->environment->get_env("DB_PASSWORD");

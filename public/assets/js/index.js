@@ -16,6 +16,7 @@ router.register("/", HomeController, "home");
 router.register("/home", HomeController, "home");
 router.register("/signin", AuthController, "signin");
 router.register("/signup", AuthController, "signup");
+router.register("/reset-password", AuthController, "resetPassword");
 router.register("/user/profile", UserController, "profile");
 router.register("/message", MessageController, "message");
 router.register("/offers", OfferController, "offers");

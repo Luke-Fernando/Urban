@@ -7,6 +7,10 @@ $dotenv->load();
 class Environment
 {
 
+    public function __construct()
+    {
+    }
+
     public function get_env($key)
     {
         return $_ENV[$key];

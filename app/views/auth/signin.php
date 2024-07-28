@@ -31,34 +31,12 @@
                     include __DIR__ . '/components/regular_input.php';
                 }
                 ?>
-                <div class="w-full h-auto flex justify-center items-center">
-                    <?php
-                    $regular_form_inputs = [
-                        [
-                            "input_name" => "Reset token",
-                            "input_id" => "reset-token",
-                            "input_type" => "text",
-                            "full_width" => true
-                        ]
-                    ];
-
-                    foreach ($regular_form_inputs as $input) {
-                        extract($input);
-                        include __DIR__ . '/components/regular_input.php';
-                    }
-                    ?>
-                </div>
                 <div class="w-full h-auto flex justify-start items-center px-2">
                     <button id="send-reset-token" class="text-sm underline font-normal text-[var(--main-font-color-80)] hover:text-[var(--active-color-brown)] duration-75
                     ease-linear">
-                        Send reset token
+                        Send reset link
                     </button>
                 </div>
-                <button id="reset-password" class="w-full md:w-max py-2 px-2 bg-[var(--active-color-brown-low)] font-normal md:font-medium text-[var(--bg-white-low)] 
-                text-sm border border-[var(--main-font-color-20)] hover:bg-[var(--active-color-brown)] hover:border-[--main-font-color-30] 
-                ease-linear duration-75 mt-10 mx-2 active:scale-95">
-                    Reset password
-                </button>
             </div>
         </section>
         <header class="w-full flex justify-center items-center">
@@ -67,7 +45,7 @@
         <section class="w-full flex justify-center items-center my-10 md:my-20">
             <div id="signup-options" class="w-full px-3 flex flex-col justify-center items-center">
                 <button id="google" class="max-w-[430px] w-full h-[50px] flex justify-center items-center bg-[var(--bg-white-low)] border border-[var(--main-font-color-20)] relative 
-            hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
+                hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
                     <p class="font-normal text-[var(--main-font-color-90)] text-base">Continue with Google</p>
                     <div class="w-[30px] h-full flex justify-center items-center absolute left-3 top-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="w-full h-auto">
@@ -79,7 +57,7 @@
                     </div>
                 </button>
                 <button id="facebook" class="max-w-[430px] w-full h-[50px] flex justify-center items-center bg-[var(--bg-white-low)] border border-[var(--main-font-color-20)] relative 
-            hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
+                hover:border-[var(--main-font-color-30)] ease-linear duration-75 my-4 active:scale-[.98]">
                     <p class="font-normal text-[var(--main-font-color-90)] text-base">Continue with Facebook</p>
                     <div class="w-[30px] h-full flex justify-center items-center absolute left-3 top-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" class="w-full h-auto">

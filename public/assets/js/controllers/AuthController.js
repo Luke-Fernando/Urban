@@ -156,6 +156,37 @@ class AuthController extends Controller {
             });
         });
     }
+
+    resetPassword() {
+        console.log("reset password");
+        const username = document.getElementById("username");
+        const resetToken = document.getElementById("reset-token");
+        const newPassword = document.getElementById("new-password");
+        const confirmNewPassword = document.getElementById("confirm-new-password");
+        const resetPasswordButton = document.getElementById("reset-password-btn");
+        resetPasswordButton.addEventListener("click", async () => {
+            this.processLoader.appendProcessLoadSpinner();
+            this.authModel.addValue("username", username.value);
+            this.authModel.addValue("reset_token", resetToken.value);
+            this.authModel.addValue("new_password", newPassword.value);
+            this.authModel.addValue("confirm_new_password", confirmNewPassword.value);
+            let responseJSON = await this.authModel.resetPassword();
+            this.processLoader.removeProcessLoadSpinner(1000, () => {
+                let response = JSON.parse(responseJSON);
+                if (response.status == "success") {
+                    if (response.message == "success") {
+                        this.alert.alert("Password changed successfully", 3000, () => {
+                            window.location.href = "/signin";
+                        });
+                    } else {
+                        this.alert.alert(response.message);
+                    }
+                } else {
+                    this.alert.alert("Something went wrong");
+                }
+            });
+        });
+    }
 }
 
 export default AuthController;

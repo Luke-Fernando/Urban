@@ -46,6 +46,28 @@ class AuthController extends Controller
         }
     }
 
+    public function reset_password()
+    {
+        if ($this->user == null) {
+            if (isset($_GET["t"]) && !empty($_GET["t"])) {
+                if (isset($_GET["u"]) && !empty($_GET["u"])) {
+                    $reset_token = $_GET["t"];
+                    $username = $_GET["u"];
+                    $this->view('auth/reset_password', ["reset_token" => $reset_token, "username" => $username]);
+                } else {
+                    header("Location: /404");
+                    exit;
+                }
+            } else {
+                header("Location: /404");
+                exit;
+            }
+        } else {
+            header("Location: /home");
+            exit;
+        }
+    }
+
     public function signin_process()
     {
         $response = [
@@ -139,12 +161,7 @@ class AuthController extends Controller
 
     public function signout_process()
     {
-        // $response = [
-        //     'status' => 'success',
-        //     'message' => null
-        // ];
         $this->auth_model->signout_process();
-        // echo json_encode($response);
     }
 
     public function forgot_password()
@@ -169,6 +186,52 @@ class AuthController extends Controller
         } else {
             $response['message'] = "Email or username is required";
         }
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
+    }
+
+    public function reset_password_process()
+    {
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        if (isset($_POST["username"]) && !empty($_POST["username"])) {
+            if (isset($_POST["reset_token"]) && !empty($_POST["reset_token"])) {
+                if (isset($_POST["new_password"]) && !empty($_POST["new_password"])) {
+                    if (isset($_POST["confirm_new_password"]) && !empty($_POST["confirm_new_password"])) {
+                        $username = $_POST["username"];
+                        $reset_token = $_POST["reset_token"];
+                        $new_password = $_POST["new_password"];
+                        $confirm_new_password = $_POST["confirm_new_password"];
+                        if ($this->validate_password($new_password)) {
+                            if ($new_password == $confirm_new_password) {
+                                $data = [
+                                    'username' => $username,
+                                    'reset_token' => $reset_token,
+                                    'password' => $new_password,
+                                ];
+                                $this->auth_model->reset_password($data);
+                            } else {
+                                $response['message'] = "Password does not match";
+                            }
+                        } else {
+                            $response['message'] = "Invalid Password";
+                        }
+                    } else {
+                        $response['message'] = "Please confirm your password";
+                    }
+                } else {
+                    $response['message'] = "New password is required";
+                }
+            } else {
+                $response['message'] = "Reset token is required";
+            }
+        } else {
+            $response['message'] = "Username is required";
+        }
+
         if ($response['message'] != null) {
             echo json_encode($response);
         }

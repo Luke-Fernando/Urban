@@ -4,6 +4,10 @@ require __DIR__ . "/../helpers/Mail.php";
 class AuthModel extends Model
 {
 
+    public function __construct()
+    {
+    }
+
     public function manage_cookie($cookie_name, $cookie_value, $expire_time)
     {
         setcookie($cookie_name, $cookie_value, [
@@ -109,14 +113,37 @@ class AuthModel extends Model
             $users_data = $users_resultset->fetch_assoc();
             $user_email = $users_data['email'];
             $mail = new Mail();
-            $token = $this->generate_reset_token();
+            $reset_token = $this->generate_reset_token();
+            $this->iud("INSERT INTO `reset_token` (`username`, `reset_token`) VALUES (?, ?);", [$username, $reset_token]);
             $mail->send_mail($user_email, $users_data['first_name'], "Requested a password reset", [
                 "name" => $users_data['first_name'],
-                "reset_token" => $token
+                "username" => $username,
+                "reset_token" => $reset_token,
             ], "reset_token");
             $response['message'] = "success";
         } else {
             $response['message'] = "Invalid email or username";
+        }
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
+    }
+
+    public function reset_password($data = [])
+    {
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        extract($data);
+        $reset_token_resultset = $this->search("SELECT * FROM `reset_token` WHERE `username` = ? AND `reset_token` = ?;", [$username, $reset_token]);
+        $reset_token_resultset_num = $reset_token_resultset->num_rows;
+        if ($reset_token_resultset_num == 1) {
+            $this->iud("UPDATE `users` SET `password` = ? WHERE `username` = ?;", [$password, $username]);
+            $this->iud("DELETE FROM `reset_token` WHERE `username` = ?;", [$username]);
+            $response['message'] = "success";
+        } else {
+            $response['message'] = "Invalid reset token";
         }
         if ($response['message'] != null) {
             echo json_encode($response);

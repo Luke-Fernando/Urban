@@ -12,6 +12,10 @@ class AuthModel extends Model {
     forgotPassword() {
         return this.post("/api/auth/forgot-password");
     }
+
+    resetPassword() {
+        return this.post("/api/auth/reset-password");
+    }
 }
 
 export default AuthModel;
