@@ -26,9 +26,9 @@ class AuthModel extends Model
         extract($data);
         $users_resultset;
         if ($email == null) {
-            $users_resultset = $this->search("SELECT * FROM `users` WHERE `username` = ? AND `password` = ?;", [$username, $password]);
+            $users_resultset = $this->search("SELECT * FROM `user` WHERE `username` = ? AND `password` = ?;", [$username, $password]);
         } else if ($email != null) {
-            $users_resultset = $this->search("SELECT * FROM `users` WHERE `email` = ? AND `password` = ?;", [$email, $password]);
+            $users_resultset = $this->search("SELECT * FROM `user` WHERE `email` = ? AND `password` = ?;", [$email, $password]);
         }
         $users_resultset_num = $users_resultset->num_rows;
         if ($users_resultset_num == 1) {
@@ -58,17 +58,17 @@ class AuthModel extends Model
             'message' => null
         ];
         extract($data);
-        $users_resultset_username = $this->search("SELECT * FROM `users` WHERE `username` = ?;", [$username]);
+        $users_resultset_username = $this->search("SELECT * FROM `user` WHERE `username` = ?;", [$username]);
         $users_resultset_num_username = $users_resultset_username->num_rows;
         if ($users_resultset_num_username != 0) {
             $response['message'] = "Username already in use";
         } else if ($users_resultset_num_username == 0) {
-            $users_resultset_email = $this->search("SELECT * FROM `users` WHERE `email` = ?;", [$email]);
+            $users_resultset_email = $this->search("SELECT * FROM `user` WHERE `email` = ?;", [$email]);
             $users_resultset_num_email = $users_resultset_email->num_rows;
             if ($users_resultset_num_email != 0) {
                 $response['message'] = "Email already in use";
             } else if ($users_resultset_num_email == 0) {
-                $this->iud("INSERT INTO `users` (`username`, `first_name`, `last_name`, `email`, `password`, `datetime_joined`) 
+                $this->iud("INSERT INTO `user` (`username`, `first_name`, `last_name`, `email`, `password`, `datetime_joined`) 
                 VALUES (?, ?, ?, ?, ?, ?);", [$username, $first_name, $last_name, $email, $password, $datetime_joined]);
                 $this->iud("INSERT INTO `profile_picture` (`username`, `profile_picture`) VALUES (?, ?);", [$username, "user.svg"]);
 
@@ -104,9 +104,9 @@ class AuthModel extends Model
         ];
         extract($data);
         if ($email == null) {
-            $users_resultset = $this->search("SELECT * FROM `users` WHERE `username` = ?;", [$username]);
+            $users_resultset = $this->search("SELECT * FROM `user` WHERE `username` = ?;", [$username]);
         } else if ($email != null) {
-            $users_resultset = $this->search("SELECT * FROM `users` WHERE `email` = ?;", [$email]);
+            $users_resultset = $this->search("SELECT * FROM `user` WHERE `email` = ?;", [$email]);
         }
         $users_resultset_num = $users_resultset->num_rows;
         if ($users_resultset_num == 1) {
