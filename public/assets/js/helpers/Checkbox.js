@@ -2,25 +2,22 @@ class Checkbox {
     constructor() { }
 
     toggleCheckbox() {
-        const checkboxeTriggers = document.querySelectorAll("[data-trigger-checkbox]");
 
-        checkboxeTriggers.forEach(trigger => {
-            if (trigger != null) {
-                trigger.addEventListener("click", () => {
-                    let checkboxId = trigger.getAttribute("data-trigger-checkbox");
-                    let checkbox = document.querySelector(`[data-input-checkbox="${checkboxId}"]`);
-                    let customCheckbox = document.querySelector(`[data-custom-checkbox="${checkboxId}"]`);
-                    let isChecked = checkbox.checked;
-                    if (isChecked) {
-                        customCheckbox.classList.remove("hidden");
-                        customCheckbox.classList.add("flex");
-                    } else {
-                        customCheckbox.classList.add("hidden");
-                        customCheckbox.classList.remove("flex");
-                    }
-                });
+        document.addEventListener("change", (event) => {
+            if (event.target.matches("[data-input-checkbox]")) {
+                let checkboxId = event.target.getAttribute("data-input-checkbox");
+                let checkbox = event.target;
+                let customCheckbox = document.querySelector(`[data-custom-checkbox="${checkboxId}"]`);
+                let isChecked = checkbox.checked;
+                if (isChecked) {
+                    customCheckbox.classList.remove("hidden");
+                    customCheckbox.classList.add("flex");
+                } else {
+                    customCheckbox.classList.add("hidden");
+                    customCheckbox.classList.remove("flex");
+                }
             }
-        })
+        });
     }
 }
 

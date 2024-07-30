@@ -40,11 +40,15 @@ class Dropdown {
                 let togglerAttr = toggler.getAttribute("data-dropdown-toggler");
                 let menu = document.querySelector(`[data-dropdown-menu="${togglerAttr}"]`);
                 toggler.addEventListener("click", () => {
-                    this.toggleMenu(toggler, menu);
+                    if (menu != null) {
+                        this.toggleMenu(toggler, menu);
+                    }
                 });
                 document.addEventListener("click", (event) => {
-                    if (!menu.contains(event.target) && !toggler.contains(event.target)) {
-                        this.toggleHide(toggler, menu);
+                    if (menu != null) {
+                        if (!(menu.contains(event.target)) && !(toggler.contains(event.target))) {
+                            this.toggleHide(toggler, menu);
+                        }
                     }
                 })
             }

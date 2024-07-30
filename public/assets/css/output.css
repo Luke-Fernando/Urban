@@ -1443,30 +1443,6 @@ input:checked + .toggle-bg {
   margin-top: 1.25rem;
 }
 
-.mt-56 {
-  margin-top: 14rem;
-}
-
-.mt-\[40\%\] {
-  margin-top: 40%;
-}
-
-.mt-\[10\%\] {
-  margin-top: 10%;
-}
-
-.mt-\[20\%\] {
-  margin-top: 20%;
-}
-
-.mt-\[20vh\] {
-  margin-top: 20vh;
-}
-
-.mt-\[10vh\] {
-  margin-top: 10vh;
-}
-
 .mt-\[15vh\] {
   margin-top: 15vh;
 }
@@ -4895,16 +4871,6 @@ input:checked + .toggle-bg {
 
   .md\:text-xl {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 

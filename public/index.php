@@ -14,6 +14,7 @@ require __DIR__ . "/../app/controllers/JobController.php";
 require __DIR__ . "/../app/controllers/UserController.php";
 require __DIR__ . "/../app/controllers/Controller404.php";
 require __DIR__ . "/../app/controllers/CookiesController.php";
+require __DIR__ . "/../app/websocket/Chat.php";
 
 $router = new Router();
 $router->register('/', 'HomeController', 'home');
@@ -44,6 +45,8 @@ $router->register('/job/dashboard', 'JobController', 'dashboard');
 $router->register('/user/reviews', 'UserController', 'reviews');
 $router->register('/404', 'Controller404', 'error');
 $router->register('/api/cookies', 'CookiesController', 'cookies');
+$router->register('/api/job/load-sub-categories', 'JobController', 'load_sub_categories');
+$router->register('/api/job/load-skills', 'JobController', 'load_skills');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 

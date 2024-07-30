@@ -1,15 +1,19 @@
 <?php
 class JobController extends Controller
 {
+    private $job_model;
+
     public function __construct()
     {
         parent::__construct();
+        $this->job_model = $this->model('JobModel');
     }
 
     public function post()
     {
         if ($this->user != null) {
-            $this->view('job/post/post', []);
+            $data = $this->job_model->post();
+            $this->view('job/post/post', $data);
         } else {
             header("Location: /signin");
             exit;
@@ -80,6 +84,42 @@ class JobController extends Controller
     {
         if ($this->user != null) {
             $this->view('job/dashboard/dashboard', []);
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
+
+    public function load_sub_categories()
+    {
+        if ($this->user != null) {
+            if (isset($_POST['category']) && !empty($_POST['category'])) {
+                $category = $_POST['category'];
+                $data = [
+                    "category" => $category
+                ];
+                $response = $this->job_model->load_sub_categories($data);
+                echo json_encode($response);
+                // echo ("response");
+            }
+        } else {
+            header("Location: /signin");
+            exit;
+        }
+    }
+
+    public function load_skills()
+    {
+        if ($this->user != null) {
+            if (isset($_POST['sub_category']) && !empty($_POST['sub_category'])) {
+                $sub_category = $_POST['sub_category'];
+                $data = [
+                    "sub_category" => $sub_category
+                ];
+                $response = $this->job_model->load_skills($data);
+                echo json_encode($response);
+                // echo ("response");
+            }
         } else {
             header("Location: /signin");
             exit;
