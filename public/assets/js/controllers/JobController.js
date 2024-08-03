@@ -39,11 +39,55 @@ class JobController extends Controller {
         this.manageSubCategories();
         this.manageSkills();
         this.setAttachment();
+        this.updateSkills();
+        this.updateLanguages();
 
         const postJobButton = document.getElementById("post-job-btn");
         postJobButton.addEventListener("click", async () => {
             this.collectPostData();
-            console.log(this.data);
+            await new Promise((resolve) => setTimeout(resolve, 10));
+            this.processLoader.appendProcessLoadSpinner();
+            this.jobModel.addValue("title", this.data.title);
+            this.jobModel.addValue("category", this.data.category);
+            this.jobModel.addValue("sub_category", this.data.sub_category);
+            this.jobModel.addValue("experience", this.data.experience);
+            this.jobModel.addValue("number_of_freelancers", this.data.number_of_freelancers);
+            this.jobModel.addValue("payment_type", this.data.payment_type);
+            this.jobModel.addValue("budget", this.data.budget);
+            this.jobModel.addValue("description", this.data.description);
+            this.jobModel.removeValue("skills[]");
+            this.jobModel.removeValue("language[]");
+            this.jobModel.removeValue("attachment_id[]");
+
+            await new Promise((resolve) => setTimeout(resolve, 10));
+
+            this.data.skills.forEach((skill) => {
+                this.jobModel.addValue("skills[]", skill);
+            });
+            this.data.language.forEach((language) => {
+                this.jobModel.addValue("language[]", language);
+            })
+            this.data.attachment.forEach((attachment) => {
+                this.jobModel.addValue("attachment_id[]", attachment.id);
+                this.jobModel.addValue(attachment.id, attachment.file);
+
+            });
+            let responseJSON = await this.jobModel.postJob();
+
+            this.processLoader.removeProcessLoadSpinner(1000, () => {
+                let response = JSON.parse(responseJSON);
+                if (response.status == "success") {
+                    if (response.message == "success") {
+                        this.alert.alert("Job posted successfully", 3000, () => {
+                            window.location.href = "/job/my-jobs";
+                        });
+                    } else {
+                        this.alert.alert(response.message);
+                    }
+                } else {
+                    this.alert.alert("Something went wrong");
+                }
+            });
         });
     }
 
@@ -73,8 +117,9 @@ class JobController extends Controller {
     }
 
     generateUniqueId() {
-        const timestamp = new Date().getTime();
-        return timestamp;
+        let timestamp = new Date().getTime();
+        let randomNum = Math.floor(Math.random() * 1000000);
+        return `${timestamp}-${randomNum}`;
     }
 
     addMilestone() {
@@ -181,11 +226,62 @@ class JobController extends Controller {
         subCategoryContainer.appendChild(subCategory);
     }
 
+    updateSkills() {
+        const skillContainer = document.querySelector('[data-dropdown-menu="skills"]');
+        const skillsDisplay = document.querySelector('[data-select-selected="skills"]');
+        skillContainer.addEventListener("change", async (event) => {
+            if (event.target.matches('[data-input-checkbox]')) {
+                let checkbox = event.target;
+                let value = checkbox.value;
+                let isChecked = checkbox.checked;
+                if (isChecked) {
+                    this.data.skills.push(value);
+                } else {
+                    this.data.skills = this.data.skills.filter(skill => skill !== value);
+                }
+                await new Promise((resolve) => setTimeout(resolve, 10));
+                let skills = [];
+                this.data.skills.forEach(skill => {
+                    let currrentSkill = skillContainer.querySelector(`[data-input-checkbox][value="${skill}"]`);
+                    let currrentSkillId = currrentSkill.getAttribute("data-input-checkbox");
+                    let currrentSkillName = document.querySelector(`[data-checkbox-content="${currrentSkillId}"]`);
+                    skills.push(currrentSkillName.textContent);
+                })
+                skillsDisplay.textContent = skills.join(", ");
+            }
+        })
+    }
+
+    updateLanguages() {
+        const languageContainer = document.querySelector('[data-dropdown-menu="language"]');
+        const languageDisplay = document.querySelector('[data-select-selected="language"]');
+        languageContainer.addEventListener("change", async (event) => {
+            if (event.target.matches('[data-input-checkbox]')) {
+                let checkbox = event.target;
+                let value = checkbox.value;
+                let isChecked = checkbox.checked;
+                if (isChecked) {
+                    this.data.language.push(value);
+                } else {
+                    this.data.language = this.data.language.filter(language => language !== value);
+                }
+                await new Promise((resolve) => setTimeout(resolve, 10));
+                let languages = [];
+                this.data.language.forEach(language => {
+                    let currrentLanguage = languageContainer.querySelector(`[data-input-checkbox][value="${language}"]`);
+                    let currrentLanguageId = currrentLanguage.getAttribute("data-input-checkbox");
+                    let currrentLanguageName = document.querySelector(`[data-checkbox-content="${currrentLanguageId}"]`);
+                    languages.push(currrentLanguageName.textContent);
+                })
+                languageDisplay.textContent = languages.join(", ");
+            }
+        })
+    }
+
     manageSkills() {
         const subCategoryTrigger = document.querySelector("[data-select-trigger='sub-category']");
         document.addEventListener("click", async (event) => {
             if (event.target.matches('[data-select-option="sub-category"]')) {
-                let option = event.target;
                 await new Promise((resolve) => setTimeout(resolve, 10));
                 this.jobModel.addValue("sub_category", subCategoryTrigger.getAttribute("data-select-value"));
                 let subCategories = await this.jobModel.loadSkills();
@@ -209,6 +305,7 @@ class JobController extends Controller {
         skill.querySelector("[data-input-checkbox]").setAttribute("data-input-checkbox", id);
         skill.querySelector("[data-input-checkbox]").setAttribute("value", skillId);
         skill.querySelector("[data-custom-checkbox]").setAttribute("data-custom-checkbox", id);
+        skill.querySelector("[data-checkbox-content]").setAttribute("data-checkbox-content", id);
         skill.querySelector("[data-checkbox-content]").textContent = skillName;
         skillsContainer.appendChild(skill);
     }
@@ -219,7 +316,6 @@ class JobController extends Controller {
         let generate = new Generate();
 
         attachments.addEventListener("change", (event) => {
-            console.log(event.target.files);
             let files = Array.from(event.target.files);
             files.forEach(async (file) => {
                 let id = this.generateUniqueId();

@@ -26,7 +26,7 @@ CREATE TABLE `category` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Development and IT'),(2,'Design and art'),(3,'Writing and translation'),(4,'Video and animation'),(5,'Digital marketing'),(6,'Finance and accounting');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,7 +50,7 @@ CREATE TABLE `experience` (
   `id` int NOT NULL AUTO_INCREMENT,
   `experience` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +59,7 @@ CREATE TABLE `experience` (
 
 LOCK TABLES `experience` WRITE;
 /*!40000 ALTER TABLE `experience` DISABLE KEYS */;
+INSERT INTO `experience` VALUES (1,'Junior'),(2,'Medium'),(3,'Senior');
 /*!40000 ALTER TABLE `experience` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +100,7 @@ CREATE TABLE `file_type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `file_type` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +109,7 @@ CREATE TABLE `file_type` (
 
 LOCK TABLES `file_type` WRITE;
 /*!40000 ALTER TABLE `file_type` DISABLE KEYS */;
+INSERT INTO `file_type` VALUES (1,'any'),(2,'image');
 /*!40000 ALTER TABLE `file_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,15 +129,19 @@ CREATE TABLE `job` (
   `experience_id` int NOT NULL,
   `number_of_freelancers_id` int NOT NULL,
   `payment_type_id` int NOT NULL,
+  `datetime_added` datetime NOT NULL,
+  `username` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_jobs_category1_idx` (`category_id`),
   KEY `fk_jobs_sub_category1_idx` (`sub_category_id`),
   KEY `fk_job_number_of_freelancers1_idx` (`number_of_freelancers_id`),
   KEY `fk_job_experience1_idx` (`experience_id`),
   KEY `fk_job_payment_type1_idx` (`payment_type_id`),
+  KEY `fk_job_user1_idx` (`username`),
   CONSTRAINT `fk_job_experience1` FOREIGN KEY (`experience_id`) REFERENCES `experience` (`id`),
   CONSTRAINT `fk_job_number_of_freelancers1` FOREIGN KEY (`number_of_freelancers_id`) REFERENCES `number_of_freelancers` (`id`),
   CONSTRAINT `fk_job_payment_type1` FOREIGN KEY (`payment_type_id`) REFERENCES `payment_type` (`id`),
+  CONSTRAINT `fk_job_user1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
   CONSTRAINT `fk_jobs_category1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   CONSTRAINT `fk_jobs_sub_category1` FOREIGN KEY (`sub_category_id`) REFERENCES `sub_category` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -241,7 +248,7 @@ CREATE TABLE `language` (
   `id` int NOT NULL AUTO_INCREMENT,
   `language` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,6 +257,7 @@ CREATE TABLE `language` (
 
 LOCK TABLES `language` WRITE;
 /*!40000 ALTER TABLE `language` DISABLE KEYS */;
+INSERT INTO `language` VALUES (1,'English'),(2,'Spanish'),(3,'French'),(4,'German'),(5,'Russian'),(6,'Sinhala');
 /*!40000 ALTER TABLE `language` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +272,7 @@ CREATE TABLE `number_of_freelancers` (
   `id` int NOT NULL AUTO_INCREMENT,
   `number_of_freelancers` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,6 +281,7 @@ CREATE TABLE `number_of_freelancers` (
 
 LOCK TABLES `number_of_freelancers` WRITE;
 /*!40000 ALTER TABLE `number_of_freelancers` DISABLE KEYS */;
+INSERT INTO `number_of_freelancers` VALUES (1,'1'),(2,'1 to 5'),(3,'5 to 10'),(4,'10 to 20'),(5,'More than 20');
 /*!40000 ALTER TABLE `number_of_freelancers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +296,7 @@ CREATE TABLE `payment_type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `payment_type` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,6 +305,7 @@ CREATE TABLE `payment_type` (
 
 LOCK TABLES `payment_type` WRITE;
 /*!40000 ALTER TABLE `payment_type` DISABLE KEYS */;
+INSERT INTO `payment_type` VALUES (1,'Fixed'),(2,'Hourly');
 /*!40000 ALTER TABLE `payment_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,7 +374,7 @@ CREATE TABLE `skill` (
   PRIMARY KEY (`id`),
   KEY `fk_skills_sub_category1_idx` (`sub_category_id`),
   CONSTRAINT `fk_skills_sub_category1` FOREIGN KEY (`sub_category_id`) REFERENCES `sub_category` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -373,6 +383,7 @@ CREATE TABLE `skill` (
 
 LOCK TABLES `skill` WRITE;
 /*!40000 ALTER TABLE `skill` DISABLE KEYS */;
+INSERT INTO `skill` VALUES (1,'HTML5',1),(2,'CSS3',1),(3,'JavaScript',1),(4,'Bootstrap',1),(5,'Responsive design',1),(6,'PHP',1),(7,'SQL',1),(8,'Git',1),(9,'WordPress',1);
 /*!40000 ALTER TABLE `skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,7 +401,7 @@ CREATE TABLE `sub_category` (
   PRIMARY KEY (`id`),
   KEY `fk_sub_category_category1_idx` (`category_id`),
   CONSTRAINT `fk_sub_category_category1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -399,6 +410,7 @@ CREATE TABLE `sub_category` (
 
 LOCK TABLES `sub_category` WRITE;
 /*!40000 ALTER TABLE `sub_category` DISABLE KEYS */;
+INSERT INTO `sub_category` VALUES (1,'Web development',1),(2,'Mobile development',1),(3,'Software development',1),(4,'DevOps and cloud',1),(5,'Database management',1),(6,'Blockchain and cryptocurrency',1);
 /*!40000 ALTER TABLE `sub_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,4 +451,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-28 18:37:40
+-- Dump completed on 2024-08-03 19:35:21

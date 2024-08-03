@@ -1,8 +1,10 @@
 <?php
+require __DIR__ . '/../helpers/Upload.php';
 class JobModel extends Model
 {
     public function __construct()
     {
+        parent::__construct();
     }
 
     public function post()
@@ -50,6 +52,42 @@ class JobModel extends Model
             'payment_type' => $payment_type
         ];
         return $data;
+    }
+
+    public function post_job($data = [])
+    {
+        extract($data);
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        $this->iud("INSERT INTO `job` (`title`, `description`, `category_id`, `sub_category_id`, `experience_id`, `number_of_freelancers_id`, `payment_type_id`, `datetime_added`, `username`) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [$title, $description, $category, $sub_category, $experience, $number_of_freelancers, $payment_type, $datetime_added, $username]);
+        $job_id = mysqli_insert_id($this->connection);
+        foreach ($skills as $key) {
+            $this->iud("INSERT INTO `job_has_skill` (`job_id`, `skill_id`) VALUES (?, ?);", [$job_id, $key]);
+        }
+        foreach ($language as $key) {
+            $this->iud("INSERT INTO `job_has_language` (`job_id`, `language_id`) VALUES (?, ?);", [$job_id, $key]);
+        }
+        if ($attachment_id != null) {
+            $upload = new Upload();
+            foreach ($attachment_id as $key) {
+                $file = $attachments[$key];
+                $custom_file_name = "job-file-" . uniqid();
+                $uploaded_file = $upload->upload_file($file, __DIR__ . '/../../public/assets/images/job/', $custom_file_name, "any");
+                $file_type_any_resultset = $this->search("SELECT * FROM `file_type` WHERE `file_type` = ?;", ["any"]);
+                $file_type_data = $file_type_any_resultset->fetch_assoc();
+                $file_type_id = $file_type_data['id'];
+                $this->iud("INSERT INTO `file` (`file`, `file_type_id`) VALUES (?, ?);", [$uploaded_file, $file_type_id]);
+                $file_id = mysqli_insert_id($this->connection);
+                $this->iud("INSERT INTO `job_has_file` (`job_id`, `file_id`) VALUES (?, ?);", [$job_id, $file_id]);
+            }
+        }
+        $response['message'] = "success";
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
     }
 
     public function load_sub_categories($data = [])

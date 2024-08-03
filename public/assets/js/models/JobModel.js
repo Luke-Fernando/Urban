@@ -8,6 +8,10 @@ class JobModel extends Model {
     loadSkills() {
         return this.post("/api/job/load-skills");
     }
+
+    postJob() {
+        return this.post("/api/job/post-job");
+    }
 }
 
 export default JobModel;

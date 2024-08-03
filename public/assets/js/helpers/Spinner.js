@@ -32,7 +32,7 @@ class Spinner {
     createPageLoadSpinner() {
         let id = Date.now();
         let loadSpinner = document.createElement("div");
-        loadSpinner.classList.add("absolute", "w-screen", "h-screen", "top-0", "left-0", "z-[999]", "bg-[var(--main-bg-yellow)]", "flex", "justify-center", "items-center");
+        loadSpinner.classList.add("fixed", "w-screen", "h-screen", "top-0", "left-0", "z-[999]", "bg-[var(--main-bg-yellow)]", "flex", "justify-center", "items-center");
         loadSpinner.id = id;
         loadSpinner.appendChild(this.createSpinner());
 
@@ -41,7 +41,7 @@ class Spinner {
 
     createProcessLoadSpinner() {
         let loadSpinner = document.createElement("div");
-        loadSpinner.classList.add("absolute", "w-screen", "h-screen", "top-0", "left-0", "z-[999]", "bg-[var(--main-bg-yellow-low)]", "flex", "justify-center", "items-center");
+        loadSpinner.classList.add("fixed", "w-screen", "h-screen", "top-0", "left-0", "z-[999]", "bg-[var(--main-bg-yellow-low)]", "flex", "justify-center", "items-center");
         loadSpinner.id = "process-load-spinner";
         loadSpinner.appendChild(this.createSpinner());
 

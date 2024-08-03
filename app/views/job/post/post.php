@@ -95,7 +95,7 @@ extract($data);
                 <span class="w-full h-auto relative flex flex-col justify-start items-start">
                     <label for="experience" class="w-full h-auto box-border relative">
                         <p class="text-sm font-normal text-[var(--main-font-color-80)] mb-2">Experience</p>
-                        <button id="experience" data-select-value="1" data-select-trigger="experience" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
+                        <button id="experience" data-select-value="0" data-select-trigger="experience" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
                         focus:ring-[var(--active-color-brown)] bg-[var(--bg-white-low)] flex justify-between items-center px-3 box-border 
                         hover:ring-[var(--active-color-brown-low)]">
                             <span data-select-selected="experience" class="w-max h-auto text-sm font-normal text-[var(--main-font-color-80)] truncate pointer-events-none">
@@ -138,7 +138,7 @@ extract($data);
                             foreach ($language as $key) {
                             ?>
                                 <label data-trigger-checkbox="<?php echo $key["language"] . "-" . $key["id"]; ?>" for="<?php echo $key["language"] . "-" . $key["id"]; ?>" class="w-max max-w-full h-auto flex justify-start items-start my-1">
-                                    <input id="<?php echo $key["language"] . "-" . $key["id"]; ?>" data-input-checkbox="<?php echo $key["language"] . "-" . $key["id"]; ?>" type="checkbox" class="hidden">
+                                    <input id="<?php echo $key["language"] . "-" . $key["id"]; ?>" data-input-checkbox="<?php echo $key["language"] . "-" . $key["id"]; ?>" type="checkbox" value="<?php echo $key["id"]; ?>" class="hidden">
                                     <span class="w-4 aspect-square bg-[--bg-white-low] border border-[var(--main-font-color-20)] flex justify-center items-center">
                                         <div data-custom-checkbox="<?php echo $key["language"] . "-" . $key["id"]; ?>" class="w-full h-full justify-center items-center hidden">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-full h-auto text-[var(--active-color-brown)]">
@@ -146,7 +146,7 @@ extract($data);
                                             </svg>
                                         </div>
                                     </span>
-                                    <span class="flex-1 h-auto flex flex-wrap justify-start items-start font-normal text-sm text-[var(--main-font-color-80)] select-none ml-3"><?php echo $key["language"]; ?></span>
+                                    <span data-checkbox-content="<?php echo $key["language"] . "-" . $key["id"]; ?>" class="flex-1 h-auto flex flex-wrap justify-start items-start font-normal text-sm text-[var(--main-font-color-80)] select-none ml-3"><?php echo $key["language"]; ?></span>
                                 </label>
                             <?php
                             }
@@ -162,7 +162,7 @@ extract($data);
                 <span class="w-full h-auto relative flex flex-col justify-start items-start">
                     <label for="freelancers" class="w-full h-auto box-border relative">
                         <p class="text-sm font-normal text-[var(--main-font-color-80)] mb-2">Freelancers</p>
-                        <button id="freelancers" data-select-value="1" data-select-trigger="freelancers" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
+                        <button id="freelancers" data-select-value="0" data-select-trigger="freelancers" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
                                                 focus:ring-[var(--active-color-brown)] bg-[var(--bg-white-low)] flex justify-between items-center px-3 box-border
                                                 hover:ring-[var(--active-color-brown-low)]">
                             <span data-select-selected="freelancers" class="w-max h-auto text-sm font-normal text-[var(--main-font-color-80)] truncate pointer-events-none">
@@ -201,7 +201,7 @@ extract($data);
                 <span class="w-full h-auto relative flex flex-col justify-start items-start">
                     <label for="payment-type" class="w-full h-auto box-border relative">
                         <p class="text-sm font-normal text-[var(--main-font-color-80)] mb-2">Payment type</p>
-                        <button id="payment-type" data-select-value="1" data-select-trigger="payment-type" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
+                        <button id="payment-type" data-select-value="0" data-select-trigger="payment-type" class="w-full h-[40px] ring-1 ring-[var(--main-font-color-20)] 
                                                 focus:ring-[var(--active-color-brown)] bg-[var(--bg-white-low)] flex justify-between items-center px-3 box-border
                                                 hover:ring-[var(--active-color-brown-low)]">
                             <span data-select-selected="payment-type" class="w-max h-auto text-sm font-normal text-[var(--main-font-color-80)] truncate pointer-events-none">

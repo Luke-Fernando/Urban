@@ -8,6 +8,10 @@ class Model {
         this.values.push({ "name": name, "data": data });
     }
 
+    removeValue(name) {
+        this.values = this.values.filter((value) => value["name"] != name);
+    }
+
     post(location) {
         return new Promise((resolve) => {
             let request = new XMLHttpRequest();
