@@ -1238,6 +1238,10 @@ input:checked + .toggle-bg {
   z-index: auto;
 }
 
+.order-last {
+  order: 9999;
+}
+
 .float-start {
   float: inline-start;
 }
@@ -1453,6 +1457,13 @@ input:checked + .toggle-bg {
 
 .box-content {
   box-sizing: content-box;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .line-clamp-3 {
@@ -2959,6 +2970,10 @@ input:checked + .toggle-bg {
 
 .border-\[var\(--main-font-color-20\)\] {
   border-color: var(--main-font-color-20);
+}
+
+.border-\[var\(--main-font-color-80\)\] {
+  border-color: var(--main-font-color-80);
 }
 
 .border-blue-600 {
@@ -4654,6 +4669,10 @@ input:checked + .toggle-bg {
 
   .md\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .md\:mr-5 {
+    margin-right: 1.25rem;
   }
 
   .md\:mt-10 {

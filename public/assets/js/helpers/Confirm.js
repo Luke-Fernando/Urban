@@ -18,7 +18,6 @@ class Confirm {
     async #createConfirmModel(data) {
         let generate = new Generate();
         let confirmModel = await generate.generateElement(data.path);
-        console.log(confirmModel);
         confirmModel.setAttribute('data-confirm', data.id);
 
         confirmModel.querySelector("[data-confirm-model]").setAttribute('data-confirm-model', data.id);
@@ -47,6 +46,7 @@ class Confirm {
 
     #removeConfirmModal() {
         this.#confirmModel.remove();
+        document.body.style.overflow = "auto";
     }
 
     #distpatchChoice(choice) {

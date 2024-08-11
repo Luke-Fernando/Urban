@@ -48,6 +48,7 @@ $router->register('/api/cookies', 'CookiesController', 'cookies');
 $router->register('/api/job/load-sub-categories', 'JobController', 'load_sub_categories');
 $router->register('/api/job/load-skills', 'JobController', 'load_skills');
 $router->register('/api/job/post-job', 'JobController', 'post_job');
+$router->register('/api/user/update-profile', 'UserController', 'update_profile');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 
