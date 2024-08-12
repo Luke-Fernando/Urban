@@ -392,7 +392,7 @@ class UserController extends Controller {
 
     async getAddedPortfolios() {
         const addedPortfolios = document.querySelectorAll("[data-portfolio-add]");
-        this.data.portfolio_added = null;
+        this.data.portfolio_added = [];
 
         addedPortfolios.forEach(portfolio => {
             let generalId = portfolio.getAttribute("data-portfolio");

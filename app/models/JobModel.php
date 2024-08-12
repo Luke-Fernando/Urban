@@ -64,11 +64,15 @@ class JobModel extends Model
         $this->iud("INSERT INTO `job` (`title`, `description`, `category_id`, `sub_category_id`, `experience_id`, `number_of_freelancers_id`, `payment_type_id`, `datetime_added`, `username`) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [$title, $description, $category, $sub_category, $experience, $number_of_freelancers, $payment_type, $datetime_added, $username]);
         $job_id = mysqli_insert_id($this->connection);
-        foreach ($skills as $key) {
-            $this->iud("INSERT INTO `job_has_skill` (`job_id`, `skill_id`) VALUES (?, ?);", [$job_id, $key]);
+        if (isset($skills)) {
+            foreach ($skills as $key) {
+                $this->iud("INSERT INTO `job_has_skill` (`job_id`, `skill_id`) VALUES (?, ?);", [$job_id, $key]);
+            }
         }
-        foreach ($language as $key) {
-            $this->iud("INSERT INTO `job_has_language` (`job_id`, `language_id`) VALUES (?, ?);", [$job_id, $key]);
+        if (isset($language)) {
+            foreach ($language as $key) {
+                $this->iud("INSERT INTO `job_has_language` (`job_id`, `language_id`) VALUES (?, ?);", [$job_id, $key]);
+            }
         }
         if ($attachment_id != null) {
             $upload = new Upload();

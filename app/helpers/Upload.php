@@ -2,9 +2,7 @@
 class Upload
 {
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function upload_file($file, $target_directory, $custom_file_name, $type)
     {
@@ -34,6 +32,8 @@ class Upload
             // }
             move_uploaded_file($file["tmp_name"], $target_file);
             return $file_name;
+        } else {
+            return false;
         }
     }
 }
