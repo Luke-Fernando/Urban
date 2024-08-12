@@ -139,46 +139,46 @@ class UserModel extends Model
             "message" => null
         ];
         extract($data);
-        // $this->iud(
-        //     "UPDATE `user` SET `first_name` = ?, `last_name` = ?, `title` = ?, `description` = ? WHERE `username` = ?;",
-        //     [$first_name, $last_name, $title, $description, $username]
-        // );
-        // if (isset($skills)) {
-        //     $user_skills_resultset = $this->search("SELECT * FROM `user_has_skill` WHERE `username` = ?;", [$username]);
-        //     $user_skills_num = $user_skills_resultset->num_rows;
-        //     for ($i = 0; $i < $user_skills_num; $i++) {
-        //         $user_skill_data = $user_skills_resultset->fetch_assoc();
-        //         $user_skill_id = $user_skill_data['skill_id'];
-        //         if (!in_array($user_skill_id, $skills)) {
-        //             $this->iud("DELETE FROM `user_has_skill` WHERE `username` = ? AND `skill_id` = ?;", [$username, $user_skill_id]);
-        //         }
-        //     }
-        //     foreach ($skills as $skill) {
-        //         $skill_resultset = $this->search("SELECT * FROM `user_has_skill` WHERE `username` = ? AND `skill_id` = ?;", [$username, $skill]);
-        //         $skill_num = $skill_resultset->num_rows;
-        //         if ($skill_num == 0) {
-        //             $this->iud("INSERT INTO `user_has_skill` (`username`, `skill_id`) VALUES (?, ?);", [$username, $skill]);
-        //         }
-        //     }
-        // }
-        // if (isset($languages)) {
-        //     $user_languages_resultset = $this->search("SELECT * FROM `user_has_language` WHERE `username` = ?;", [$username]);
-        //     $user_languages_num = $user_languages_resultset->num_rows;
-        //     for ($i = 0; $i < $user_languages_num; $i++) {
-        //         $user_language_data = $user_languages_resultset->fetch_assoc();
-        //         $user_language_id = $user_language_data['language_id'];
-        //         if (!in_array($user_language_id, $languages)) {
-        //             $this->iud("DELETE FROM `user_has_language` WHERE `username` = ? AND `language_id` = ?;", [$username, $user_language_id]);
-        //         }
-        //     }
-        //     foreach ($languages as $language) {
-        //         $language_resultset = $this->search("SELECT * FROM `user_has_language` WHERE `username` = ? AND `language_id` = ?;", [$username, $language]);
-        //         $language_num = $language_resultset->num_rows;
-        //         if ($language_num == 0) {
-        //             $this->iud("INSERT INTO `user_has_language` (`username`, `language_id`) VALUES (?, ?);", [$username, $language]);
-        //         }
-        //     }
-        // }
+        $this->iud(
+            "UPDATE `user` SET `first_name` = ?, `last_name` = ?, `title` = ?, `description` = ? WHERE `username` = ?;",
+            [$first_name, $last_name, $title, $description, $username]
+        );
+        if (isset($skills)) {
+            $user_skills_resultset = $this->search("SELECT * FROM `user_has_skill` WHERE `username` = ?;", [$username]);
+            $user_skills_num = $user_skills_resultset->num_rows;
+            for ($i = 0; $i < $user_skills_num; $i++) {
+                $user_skill_data = $user_skills_resultset->fetch_assoc();
+                $user_skill_id = $user_skill_data['skill_id'];
+                if (!in_array($user_skill_id, $skills)) {
+                    $this->iud("DELETE FROM `user_has_skill` WHERE `username` = ? AND `skill_id` = ?;", [$username, $user_skill_id]);
+                }
+            }
+            foreach ($skills as $skill) {
+                $skill_resultset = $this->search("SELECT * FROM `user_has_skill` WHERE `username` = ? AND `skill_id` = ?;", [$username, $skill]);
+                $skill_num = $skill_resultset->num_rows;
+                if ($skill_num == 0) {
+                    $this->iud("INSERT INTO `user_has_skill` (`username`, `skill_id`) VALUES (?, ?);", [$username, $skill]);
+                }
+            }
+        }
+        if (isset($languages)) {
+            $user_languages_resultset = $this->search("SELECT * FROM `user_has_language` WHERE `username` = ?;", [$username]);
+            $user_languages_num = $user_languages_resultset->num_rows;
+            for ($i = 0; $i < $user_languages_num; $i++) {
+                $user_language_data = $user_languages_resultset->fetch_assoc();
+                $user_language_id = $user_language_data['language_id'];
+                if (!in_array($user_language_id, $languages)) {
+                    $this->iud("DELETE FROM `user_has_language` WHERE `username` = ? AND `language_id` = ?;", [$username, $user_language_id]);
+                }
+            }
+            foreach ($languages as $language) {
+                $language_resultset = $this->search("SELECT * FROM `user_has_language` WHERE `username` = ? AND `language_id` = ?;", [$username, $language]);
+                $language_num = $language_resultset->num_rows;
+                if ($language_num == 0) {
+                    $this->iud("INSERT INTO `user_has_language` (`username`, `language_id`) VALUES (?, ?);", [$username, $language]);
+                }
+            }
+        }
         if (isset($portfolio_added)) {
             foreach ($portfolio_added as $portfolio) {
                 if (isset($portfolio->title) && !empty($portfolio->title)) {
