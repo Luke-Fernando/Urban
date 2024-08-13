@@ -457,7 +457,7 @@ class UserController extends Controller {
 
     async getAddedCertifications() {
         const addedCertifications = document.querySelectorAll("[data-certification-add]");
-        this.data.certification_added = null;
+        this.data.certification_added = [];
 
         addedCertifications.forEach(certification => {
             let certificationTitle = certification.querySelector("[data-editor-title]");

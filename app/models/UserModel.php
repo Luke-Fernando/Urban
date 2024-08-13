@@ -179,44 +179,23 @@ class UserModel extends Model
                 }
             }
         }
-        if (isset($portfolio_added)) {
-            foreach ($portfolio_added as $portfolio) {
-                if (isset($portfolio->title) && !empty($portfolio->title)) {
-                    if (isset($portfolio->link) && !empty($portfolio->link)) {
-                        $id = $portfolio->id;
-                        if (isset($_FILES[$id]) && !empty($_FILES[$id])) {
-                            $portfolio_title = $portfolio->title;
-                            $portfolio_link = $portfolio->link;
-                            $portfolio_image = $_FILES[$id];
-                            $upload = new Upload();
-                            $custom_file_name = $id . "-" . uniqid();
-                            $uploaded_file = $upload->upload_file($portfolio_image, __DIR__ . '/../../public/assets/images/portfolios/', $custom_file_name, "image");
-                            if ($uploaded_file != false) {
-                                $file_type_resultset = $this->search("SELECT * FROM `file_type` WHERE `file_type` = ?;", ["image"]);
-                                $file_type_data = $file_type_resultset->fetch_assoc();
-                                $file_type_id = $file_type_data['id'];
-                                $this->iud("INSERT INTO `file` (`file`, `file_type_id`) VALUES (?, ?);", [$uploaded_file, $file_type_id]);
-                                $file_id = mysqli_insert_id($this->connection);
-                                $this->iud(
-                                    "INSERT INTO `portfolio` (`username`, `title`, `link`, `file_id`) VALUES (?, ?, ?, ?);",
-                                    [$username, $portfolio_title, $portfolio_link, $file_id]
-                                );
-                            } else {
-                                echo "Invalid file type";
-                            }
-                        } else {
-                            $response['message'] = "Image is required for portfolio";
-                        }
-                    } else {
-                        $response['message'] = "Link is required for portfolio";
-                    }
-                } else {
-                    $response['message'] = "Title is required for portfolio";
-                }
-            }
-        }
 
         if (isset($portfolio_updated)) {
+            $all_portfolio_resultset = $this->search("SELECT * FROM `portfolio` WHERE `username` = ?;", [$username]);
+            $all_portfolio_num = $all_portfolio_resultset->num_rows;
+            for ($i = 0; $i < $all_portfolio_num; $i++) {
+                $all_portfolio_data = $all_portfolio_resultset->fetch_assoc();
+                $all_portfolio_id = $all_portfolio_data['id'];
+                $in_array = false;
+                foreach ($portfolio_updated as $portfolio) {
+                    if ($all_portfolio_id == $portfolio->id) {
+                        $in_array = true;
+                    }
+                }
+                if (!$in_array) {
+                    $this->iud("DELETE FROM `portfolio` WHERE `username` = ? AND `id` = ?;", [$username, $all_portfolio_id]);
+                }
+            }
             foreach ($portfolio_updated as $portfolio) {
                 if (isset($portfolio->title) && !empty($portfolio->title)) {
                     if (isset($portfolio->link) && !empty($portfolio->link)) {
@@ -257,12 +236,134 @@ class UserModel extends Model
             }
         }
 
+        if (isset($portfolio_added)) {
+            foreach ($portfolio_added as $portfolio) {
+                if (isset($portfolio->title) && !empty($portfolio->title)) {
+                    if (isset($portfolio->link) && !empty($portfolio->link)) {
+                        $id = $portfolio->id;
+                        if (isset($_FILES[$id]) && !empty($_FILES[$id])) {
+                            $portfolio_title = $portfolio->title;
+                            $portfolio_link = $portfolio->link;
+                            $portfolio_image = $_FILES[$id];
+                            $upload = new Upload();
+                            $custom_file_name = $id . "-" . uniqid();
+                            $uploaded_file = $upload->upload_file($portfolio_image, __DIR__ . '/../../public/assets/images/portfolios/', $custom_file_name, "image");
+                            if ($uploaded_file != false) {
+                                $file_type_resultset = $this->search("SELECT * FROM `file_type` WHERE `file_type` = ?;", ["image"]);
+                                $file_type_data = $file_type_resultset->fetch_assoc();
+                                $file_type_id = $file_type_data['id'];
+                                $this->iud("INSERT INTO `file` (`file`, `file_type_id`) VALUES (?, ?);", [$uploaded_file, $file_type_id]);
+                                $file_id = mysqli_insert_id($this->connection);
+                                $this->iud(
+                                    "INSERT INTO `portfolio` (`username`, `title`, `link`, `file_id`) VALUES (?, ?, ?, ?);",
+                                    [$username, $portfolio_title, $portfolio_link, $file_id]
+                                );
+                            } else {
+                                echo "Invalid file type";
+                            }
+                        } else {
+                            $response['message'] = "Image is required for portfolio";
+                        }
+                    } else {
+                        $response['message'] = "Link is required for portfolio";
+                    }
+                } else {
+                    $response['message'] = "Title is required for portfolio";
+                }
+            }
+        }
+
+        if (isset($certification_updated)) {
+            //
+            $all_certification_resultset = $this->search("SELECT * FROM `certification` WHERE `username` = ?;", [$username]);
+            $all_certification_num = $all_certification_resultset->num_rows;
+            for ($i = 0; $i < $all_certification_num; $i++) {
+                $all_certification_data = $all_certification_resultset->fetch_assoc();
+                $all_certification_id = $all_certification_data['id'];
+                $in_array = false;
+                foreach ($certification_updated as $certification) {
+                    if ($all_certification_id == $certification->id) {
+                        $in_array = true;
+                    }
+                }
+                if (!$in_array) {
+                    $this->iud("DELETE FROM `certification` WHERE `username` = ? AND `id` = ?;", [$username, $all_certification_id]);
+                }
+            }
+            //
+            foreach ($certification_updated as $certification) {
+                if (isset($certification->title) && !empty($certification->title)) {
+                    if (isset($certification->date) && !empty($certification->date)) {
+                        if (isset($certification->provider) && !empty($certification->provider)) {
+                            if (isset($certification->description) && !empty($certification->description)) {
+                                if (isset($certification->link) && !empty($certification->link)) {
+                                    $certification_title = $certification->title;
+                                    $certification_date = $certification->date;
+                                    $certification_provider = $certification->provider;
+                                    $certification_description = $certification->description;
+                                    $certification_link = $certification->link;
+                                    $this->iud(
+                                        "UPDATE `certification` SET `title` = ?, `description` = ?, `issued_date` = ?, `link` = ?, `provider` = ? WHERE `username` = ? AND `id` = ?;",
+                                        [$certification_title, $certification_description, $certification_date, $certification_link, $certification_provider, $username, $certification->id]
+                                    );
+                                } else {
+                                    $response['message'] = "Link is required for certification";
+                                }
+                            } else {
+                                $response['message'] = "Please add your certification description";
+                            }
+                        } else {
+                            $response['message'] = "Please add your certification provider";
+                        }
+                    } else {
+                        $response['message'] = "Date is required for certification";
+                    }
+                } else {
+                    $response['message'] = "Title is required for certification";
+                }
+            }
+        }
+
+        if (isset($certification_added)) {
+            foreach ($certification_added as $certification) {
+                if (isset($certification->title) && !empty($certification->title)) {
+                    if (isset($certification->date) && !empty($certification->date)) {
+                        if (isset($certification->provider) && !empty($certification->provider)) {
+                            if (isset($certification->description) && !empty($certification->description)) {
+                                if (isset($certification->link) && !empty($certification->link)) {
+                                    $certification_title = $certification->title;
+                                    $certification_date = $certification->date;
+                                    $date_time = new DateTime($certification_date);
+                                    $formatted_date = $date_time->format('Y-m-d');
+                                    $certification_provider = $certification->provider;
+                                    $certification_description = $certification->description;
+                                    $certification_link = $certification->link;
+                                    $this->iud(
+                                        "INSERT INTO `certification` (`username`, `title`, `description`, `issued_date`, `link`, `provider`) 
+                                        VALUES (?, ?, ?, ?, ?, ?);",
+                                        [$username, $certification_title, $certification_description, $formatted_date, $certification_link, $certification_provider]
+                                    );
+                                } else {
+                                    $response['message'] = "Link is required for certification";
+                                }
+                            } else {
+                                $response['message'] = "Please add your certification description";
+                            }
+                        } else {
+                            $response['message'] = "Please add your certification provider";
+                        }
+                    } else {
+                        $response['message'] = "Date is required for certification";
+                    }
+                } else {
+                    $response['message'] = "Title is required for certification";
+                }
+            }
+        }
+
         if ($response['message'] == null) {
             $response['message'] = "success";
         }
-        // if (isset($portfolio_updated)) {
-        //     echo "portfolio updated";
-        // }
         echo json_encode($response);
     }
 }
