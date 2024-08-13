@@ -443,7 +443,7 @@
                         $link_id = $portfolio["id"] . "-" . $unique_id . "-link";
                         $image_id = $portfolio["id"] . "-" . $unique_id . "-image";
                 ?>
-                        <div data-portfolio="<?php echo $general_id; ?>" data-portfolio-update="<?php echo $general_id; ?>" class="w-full h-auto flex flex-col justify-center items-center relative
+                        <div data-portfolio="<?php echo $general_id; ?>" data-portfolio-update="<?php echo $portfolio["id"]; ?>" class="w-full h-auto flex flex-col justify-center items-center relative
                         before:content-[''] before:absolute before:right-full before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:h-full
                         before:bg-[var(--main-font-color-20)] my-4">
                             <div data-editor-expand-trigger="<?php echo $general_id; ?>" class="w-full h-auto flex justify-start items-center hover:bg-[var(--main-font-color-10)] duration-75

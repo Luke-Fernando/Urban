@@ -216,6 +216,47 @@ class UserModel extends Model
             }
         }
 
+        if (isset($portfolio_updated)) {
+            foreach ($portfolio_updated as $portfolio) {
+                if (isset($portfolio->title) && !empty($portfolio->title)) {
+                    if (isset($portfolio->link) && !empty($portfolio->link)) {
+                        $id = $portfolio->id;
+                        $image_id = $portfolio->image_id;
+                        $portfolio_title = $portfolio->title;
+                        $portfolio_link = $portfolio->link;
+                        if (isset($_FILES[$image_id]) && !empty($_FILES[$image_id])) {
+                            $portfolio_image = $_FILES[$image_id];
+                            $upload = new Upload();
+                            $custom_file_name = $id . "-" . uniqid();
+                            $uploaded_file = $upload->upload_file($portfolio_image, __DIR__ . '/../../public/assets/images/portfolios/', $custom_file_name, "image");
+                            if ($uploaded_file != false) {
+                                $file_type_resultset = $this->search("SELECT * FROM `file_type` WHERE `file_type` = ?;", ["image"]);
+                                $file_type_data = $file_type_resultset->fetch_assoc();
+                                $file_type_id = $file_type_data['id'];
+                                $this->iud("INSERT INTO `file` (`file`, `file_type_id`) VALUES (?, ?);", [$uploaded_file, $file_type_id]);
+                                $file_id = mysqli_insert_id($this->connection);
+                                $this->iud(
+                                    "UPDATE `portfolio` SET `title` = ?, `link` = ?, `file_id` = ? WHERE `username` = ? AND `id` = ?;",
+                                    [$portfolio_title, $portfolio_link, $file_id, $username, $id]
+                                );
+                            } else {
+                                echo "Invalid file type";
+                            }
+                        } else {
+                            $this->iud(
+                                "UPDATE `portfolio` SET `title` = ?, `link` = ? WHERE `username` = ? AND `id` = ?;",
+                                [$portfolio_title, $portfolio_link, $username, $id]
+                            );
+                        }
+                    } else {
+                        $response['message'] = "Link is required for portfolio";
+                    }
+                } else {
+                    $response['message'] = "Title is required for portfolio";
+                }
+            }
+        }
+
         if ($response['message'] == null) {
             $response['message'] = "success";
         }

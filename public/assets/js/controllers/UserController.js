@@ -359,6 +359,7 @@ class UserController extends Controller {
 
         updatedPortfolios.forEach(portfolio => {
             let portfolioId = portfolio.getAttribute("data-portfolio-update");
+
             let generalId = portfolio.getAttribute("data-portfolio");
             let portfolioImage = () => {
                 let imgInput = portfolio.querySelector("[data-editor-image-input]");
@@ -538,7 +539,8 @@ class UserController extends Controller {
         let portfolio_updated = []
         this.data.portfolio_updated.forEach(portfolio => {
             let data = {
-                "id": portfolio.images.image_id,
+                "image_id": portfolio.images.image_id,
+                "id": portfolio.id,
                 "title": portfolio.title,
                 "link": portfolio.link,
             }
