@@ -61,8 +61,9 @@ class JobModel extends Model
             'status' => 'success',
             'message' => null
         ];
-        $this->iud("INSERT INTO `job` (`title`, `description`, `category_id`, `sub_category_id`, `experience_id`, `number_of_freelancers_id`, `payment_type_id`, `datetime_added`, `username`) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [$title, $description, $category, $sub_category, $experience, $number_of_freelancers, $payment_type, $datetime_added, $username]);
+        $this->iud("INSERT INTO `job` 
+        (`title`, `description`, `category_id`, `sub_category_id`, `experience_id`, `number_of_freelancers_id`, `payment_type_id`, `budget`, `datetime_added`, `username`) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [$title, $description, $category, $sub_category, $experience, $number_of_freelancers, $payment_type, $budget, $datetime_added, $username]);
         $job_id = mysqli_insert_id($this->connection);
         if (isset($skills)) {
             foreach ($skills as $key) {
