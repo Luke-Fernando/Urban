@@ -116,6 +116,37 @@ class HomeController extends Controller {
             job.querySelector("[data-job-budget]").setAttribute("data-job-budget", id);
             job.querySelector("[data-job-budget]").textContent = `${item.payment_type}: $${item.budget}`;
             job.querySelector("[data-job-save]").setAttribute("data-job-save", id);
+            if (item.saved) {
+                job.querySelector("[data-job-save]").classList.remove("text-[var(--main-font-color-30)]");
+                job.querySelector("[data-job-save]").classList.add("text-[var(--active-color-brown)]");
+            } else {
+                job.querySelector("[data-job-save]").classList.add("text-[var(--main-font-color-30)]");
+                job.querySelector("[data-job-save]").classList.remove("text-[var(--active-color-brown)]");
+            }
+            job.querySelector("[data-job-save]").addEventListener("click", async (event) => {
+                this.processLoader.appendProcessLoadSpinner();
+                this.homeModel.addValue("job_id", item.id);
+                let responseJSON = await this.homeModel.saveJobs();
+                console.log(responseJSON);
+
+
+                this.processLoader.removeProcessLoadSpinner(1000, async () => {
+                    // 
+                    let response = JSON.parse(responseJSON);
+                    // do something!
+                    if (response.status == "success") {
+                        if (response.message == "success") {
+                            event.target.classList.toggle("text-[var(--main-font-color-30)]");
+                            event.target.classList.toggle("text-[var(--active-color-brown)]");
+                        } else {
+                            this.alert.alert(response.message, 3000);
+                        }
+                    } else {
+                        this.alert.alert("Something went wrong", 3000);
+                    }
+                    // 
+                });
+            });
             job.querySelector("[data-job-description]").setAttribute("data-job-description", id);
             job.querySelector("[data-job-description]").textContent = item.description;
             job.querySelector("[data-job-description]").setAttribute("href", jobLink);

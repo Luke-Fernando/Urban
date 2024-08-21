@@ -6,9 +6,9 @@
             <h3 data-job-title="id" class="font-normal text-base text-[var(--main-font-color-90)] mt-1">Corem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
             <p data-job-budget="id" class="font-normal text-sm text-[var(--main-font-color-30)]">$10.00/hr</p>
         </a>
-        <button data-job-save="id" class="w-max h-max flex justify-center items-center active:scale-95">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-6 h-auto 
-                            text-[var(--main-font-color-30)] hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+        <button data-job-save="id" class="w-max h-max flex justify-center items-center active:scale-95 text-[var(--main-font-color-30)] 
+        hover:text-[var(--active-color-brown)] duration-75 ease-linear">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-6 h-auto pointer-events-none">
                 <path fill="currentColor" d="M5 21V3h14v18l-7-3z" />
             </svg>
         </button>

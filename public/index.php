@@ -50,6 +50,7 @@ $router->register('/api/job/load-skills', 'JobController', 'load_skills');
 $router->register('/api/job/post-job', 'JobController', 'post_job');
 $router->register('/api/user/update-profile', 'UserController', 'update_profile');
 $router->register('/api/home/load-jobs', 'HomeController', 'load_jobs');
+$router->register('/api/home/save-jobs', 'HomeController', 'save_jobs');
 $router->dispatch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 

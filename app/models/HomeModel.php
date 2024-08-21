@@ -60,6 +60,12 @@ class HomeModel extends Model
                 }
                 $user_review = round($user_review_total / $user_review_num);
             }
+            $saved_job_resultset = $this->search("SELECT * FROM `saved_job` WHERE `job_id` = ? AND `username` = ?;", [$job_data['id'], $username]);
+            $saved_job_num = $saved_job_resultset->num_rows;
+            $saved = false;
+            if ($saved_job_num == 1) {
+                $saved = true;
+            }
             $job_data = [
                 'id' => $job_data['id'],
                 'date' => $job_data['datetime_added'],
@@ -72,11 +78,31 @@ class HomeModel extends Model
                 'author' => $first_name . ' ' . $last_name,
                 'username' => $username,
                 'review' => $user_review,
+                'saved' => $saved
             ];
 
             array_push($jobs, $job_data);
         }
 
         return $jobs;
+    }
+
+    public function save_jobs($data = [])
+    {
+        $response = [
+            'status' => 'success',
+            'message' => null
+        ];
+        extract($data);
+        $saved_job_resultset = $this->search("SELECT * FROM `saved_job` WHERE `job_id` = ? AND `username` = ?;", [$job_id, $username]);
+        $saved_job_num = $saved_job_resultset->num_rows;
+        if ($saved_job_num == 1) {
+            $this->iud("DELETE FROM `saved_job` WHERE `job_id` = ? AND `username` = ?;", [$job_id, $username]);
+            $response['message'] = "success";
+        } else if ($saved_job_num == 0) {
+            $this->iud("INSERT INTO `saved_job` (`job_id`, `username`) VALUES (?, ?);", [$job_id, $username]);
+            $response['message'] = "success";
+        }
+        echo json_encode($response);
     }
 }

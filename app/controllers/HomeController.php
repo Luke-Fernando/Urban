@@ -37,4 +37,31 @@ class HomeController extends Controller
             header("Location: /signin");
         }
     }
+
+    public function save_jobs()
+    {
+        if ($this->user != null) {
+            $response = [
+                'status' => 'success',
+                'message' => null
+            ];
+            if (isset($_POST["job_id"])) {
+                $job_id = $_POST["job_id"];
+                $username = $this->user['username'];
+                $data = [
+                    'job_id' => $job_id,
+                    'username' => $username
+                ];
+                $this->home_model->save_jobs($data);
+            } else {
+                $response['message'] = "Invalid Request";
+            }
+        } else {
+            header("Location: /signin");
+        }
+
+        if ($response['message'] != null) {
+            echo json_encode($response);
+        }
+    }
 }
