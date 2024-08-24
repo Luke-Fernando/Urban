@@ -221,7 +221,7 @@
             </div>
             <!-- job nav  -->
             <!-- jobs  -->
-            <div id="jobs-container" class="w-full h-auto flex flex-col justify-start items-center mt-16">
+            <div data-display-stat="<?php echo $stat; ?>" id="jobs-container" class="w-full h-auto flex flex-col justify-start items-center mt-16">
             </div>
             <!-- jobs  -->
             <div class="w-full h-auto flex justify-center md:justify-start items-center mt-10">

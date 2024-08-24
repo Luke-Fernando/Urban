@@ -200,9 +200,14 @@ class HomeController extends Controller {
     }
 
     async initializeJobs() {
+        let stat = document.querySelector("[data-display-stat]").getAttribute("data-display-stat");
+
         this.homeModel.addValue("limit", this.perPage);
         this.homeModel.addValue("offset", this.currentPage);
+        this.homeModel.addValue("stat", stat);
         let responseJSON = await this.homeModel.loadJobs();
+        console.log(responseJSON);
+
         let response = JSON.parse(responseJSON);
         this.getJobs(response);
     }

@@ -12,7 +12,16 @@ class HomeController extends Controller
     public function home()
     {
         if ($this->user != null) {
-            $this->view('home/dashboard', []);
+            $stat = "all";
+            if (isset($_GET["page"])) {
+                if ($_GET["page"] == "saved") {
+                    $stat = $_GET["page"];
+                }
+            }
+            $data = [
+                'stat' => $stat
+            ];
+            $this->view('home/dashboard', $data);
         } else {
             $this->view('home/home', []);
         }
@@ -23,14 +32,21 @@ class HomeController extends Controller
         if ($this->user != null) {
             if (isset($_POST["limit"])) {
                 if (isset($_POST["offset"])) {
-                    $limit = $_POST["limit"];
-                    $offset = $_POST["offset"];
-                    $data = [
-                        'limit' => $limit,
-                        'offset' => $offset
-                    ];
-                    $jobs = $this->home_model->load_jobs($data);
-                    echo json_encode($jobs);
+                    if (isset($_POST["stat"])) {
+                        if ($_POST["stat"] == "saved" || $_POST["stat"] == "all") {
+                            $stat = $_POST["stat"];
+                            $limit = $_POST["limit"];
+                            $offset = $_POST["offset"];
+                            $data = [
+                                'username' => $this->user['username'],
+                                'limit' => $limit,
+                                'offset' => $offset,
+                                'stat' => $stat
+                            ];
+                            $jobs = $this->home_model->load_jobs($data);
+                            echo json_encode($jobs);
+                        }
+                    }
                 }
             }
         } else {

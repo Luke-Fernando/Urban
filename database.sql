@@ -565,6 +565,33 @@ LOCK TABLES `review` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `saved_job`
+--
+
+DROP TABLE IF EXISTS `saved_job`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `saved_job` (
+  `job_id` int NOT NULL,
+  `username` varchar(20) NOT NULL,
+  KEY `fk_saved_job_job1_idx` (`job_id`),
+  KEY `fk_saved_job_user1_idx` (`username`),
+  CONSTRAINT `fk_saved_job_job1` FOREIGN KEY (`job_id`) REFERENCES `job` (`id`),
+  CONSTRAINT `fk_saved_job_user1` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `saved_job`
+--
+
+LOCK TABLES `saved_job` WRITE;
+/*!40000 ALTER TABLE `saved_job` DISABLE KEYS */;
+INSERT INTO `saved_job` VALUES (3,'lukefer'),(8,'lukefer');
+/*!40000 ALTER TABLE `saved_job` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `skill`
 --
 
@@ -741,4 +768,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-17 23:02:42
+-- Dump completed on 2024-08-24 18:35:37
