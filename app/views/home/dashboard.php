@@ -212,12 +212,34 @@
             <!-- search  -->
             <!-- job nav  -->
             <div class="w-full h-auto flex justify-center md:justify-start items-center mt-5">
-                <a href="#" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
-                hover:text-[var(--active-color-brown)] pr-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] before:bg-[var(--main-font-color-20)] 
-                before:absolute before:z-0 before:right-0 before:top-full before:duration-75 before:ease-linear hover:before:bg-[var(--active-color-brown)]">Job feed</a>
-                <a href="#" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
+                <?php
+                if ($stat == "all") {
+                ?>
+                    <a href="/" class="flex w-max h-max justify-center items-center font-normal text-base 
+                text-[var(--active-color-brown)] pr-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] 
+                before:absolute before:z-0 before:right-0 before:top-full before:duration-75 before:ease-linear before:bg-[var(--active-color-brown)]">Job feed</a>
+                    <a href="?page=saved" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
                 hover:text-[var(--active-color-brown)] pl-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] before:bg-[var(--main-font-color-20)] 
                 before:absolute before:z-0 before:left-0 before:top-full before:duration-75 before:ease-linear hover:before:bg-[var(--active-color-brown)]">Saved jobs</a>
+                <?php
+                } else if ($stat == "saved") {
+                ?>
+                    <a href="/" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
+                hover:text-[var(--active-color-brown)] pr-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] before:bg-[var(--main-font-color-20)] 
+                before:absolute before:z-0 before:right-0 before:top-full before:duration-75 before:ease-linear hover:before:bg-[var(--active-color-brown)]">Job feed</a>
+
+                    <a href="?page=saved" class="flex w-max h-max justify-center items-center font-normal text-base 
+                text-[var(--active-color-brown)] pl-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] 
+                before:absolute before:z-0 before:left-0 before:top-full before:duration-75 before:ease-linear before:bg-[var(--active-color-brown)]">Saved jobs</a>
+                <?php
+                }
+                ?>
+                <!-- <a href="/" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
+                hover:text-[var(--active-color-brown)] pr-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] before:bg-[var(--main-font-color-20)] 
+                before:absolute before:z-0 before:right-0 before:top-full before:duration-75 before:ease-linear hover:before:bg-[var(--active-color-brown)]">Job feed</a>
+                <a href="?page=saved" class="flex w-max h-max justify-center items-center font-normal text-base text-[var(--main-font-color-90)] 
+                hover:text-[var(--active-color-brown)] pl-4 py-2 duration-75 ease-linear relative before:content-[''] before:w-1/2 before:h-[1px] before:bg-[var(--main-font-color-20)] 
+                before:absolute before:z-0 before:left-0 before:top-full before:duration-75 before:ease-linear hover:before:bg-[var(--active-color-brown)]">Saved jobs</a> -->
             </div>
             <!-- job nav  -->
             <!-- jobs  -->
