@@ -105,7 +105,7 @@ class HomeController extends Controller {
             let generate = new Generate();
             let id = this.generateUniqueId();
             let job = await generate.generateElement("/assets/js/views/home/job.php");
-            let jobLink = `/job/?id=${item.id}`
+            let jobLink = `/job?id=${item.id}`
             job.setAttribute("data-job", id);
             job.querySelector("[data-job-header]").setAttribute("data-job-header", id);
             job.querySelector("[data-job-header]").setAttribute("href", jobLink);
@@ -163,7 +163,7 @@ class HomeController extends Controller {
             });
             job.querySelector("[data-job-author]").setAttribute("data-job-author", id);
             job.querySelector("[data-job-author]").textContent = item.author;
-            job.querySelector("[data-job-author]").setAttribute("href", `/user/?id=${item.author_id}`);
+            job.querySelector("[data-job-author]").setAttribute("href", `/user?id=${item.author_id}`);
             job.querySelector("[data-job-review]").setAttribute("data-job-review", id);
             let review = Number(item.review);
             for (let i = 0; i < 5; i++) {

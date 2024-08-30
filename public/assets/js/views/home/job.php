@@ -1,7 +1,7 @@
 <!-- job  -->
 <div data-job="id" class="w-full h-auto border-t border-b border-[var(--main-font-color-20)] py-4 px-3">
     <div class="w-full h-auto flex justify-between items-start">
-        <a data-job-header="id" href="/job/?id=?id" class="flex-1 h-auto">
+        <a data-job-header="id" href="/job?id=id" class="flex-1 h-auto">
             <p class="font-normal text-sm text-[var(--main-font-color-30)]">Posted on <span data-job-date="id" class="font-normal text-sm text-[var(--main-font-color-30)]">today</span></p>
             <h3 data-job-title="id" class="font-normal text-base text-[var(--main-font-color-90)] mt-1">Corem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
             <p data-job-budget="id" class="font-normal text-sm text-[var(--main-font-color-30)]">$10.00/hr</p>
@@ -14,7 +14,7 @@
         </button>
     </div>
     <div class="w-full h-auto mt-4">
-        <a data-job-description="id" href="/job/?id=?id" class="line-clamp-4 font-normal text-[var(--main-font-color-80)] text-sm">
+        <a data-job-description="id" href="/job?id=id" class="line-clamp-4 font-normal text-[var(--main-font-color-80)] text-sm">
             Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
             metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit,
             sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent
@@ -23,7 +23,7 @@
         </a>
     </div>
     <div class="w-full h-auto flex justify-start items-center mt-4">
-        <a data-job-applications="id" href="/job/?id=?id" class="font-medium text-sm text-[var(--main-font-color-90)]">10+ applications</a>
+        <a data-job-applications="id" href="/job?id=id" class="font-medium text-sm text-[var(--main-font-color-90)]">10+ applications</a>
     </div>
     <div data-job-skills="id" class="w-full h-auto flex justify-start items-start flex-wrap mt-4">
         <!-- <a href="#" class="flex justify-center items-center w-max h-auto px-2 py-1 bg-[var(--bg-white-low)] border border-[var(--main-font-color-20)] 

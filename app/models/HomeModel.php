@@ -21,7 +21,10 @@ class HomeModel extends Model
     public function load_all_jobs($data = [])
     {
         extract($data);
-        $job_resultset = $this->search("SELECT * FROM `job` ORDER BY `datetime_added` DESC LIMIT ? OFFSET ?;", [$limit, $offset]);
+        $status_resultset = $this->search("SELECT * FROM `status` WHERE `status` = ?;", ["available"]);
+        $status_data = $status_resultset->fetch_assoc();
+        $status_id = $status_data['id'];
+        $job_resultset = $this->search("SELECT * FROM `job` WHERE `status_id` = ? ORDER BY `datetime_added` DESC LIMIT ? OFFSET ?;", [$status_id, $limit, $offset]);
         $job_resultset_num = $job_resultset->num_rows;
         $jobs = [];
         for ($i = 0; $i < $job_resultset_num; $i++) {
@@ -100,7 +103,10 @@ class HomeModel extends Model
     public function load_saved_jobs($data = [])
     {
         extract($data);
-        $job_resultset = $this->search("SELECT * FROM `job` ORDER BY `datetime_added` DESC;", []);
+        $status_resultset = $this->search("SELECT * FROM `status` WHERE `status` = ?;", ["available"]);
+        $status_data = $status_resultset->fetch_assoc();
+        $status_id = $status_data['id'];
+        $job_resultset = $this->search("SELECT * FROM `job` WHERE `status_id` = ? ORDER BY `datetime_added` DESC;", [$status_id]);
         $job_resultset_num = $job_resultset->num_rows;
         $jobs = [];
         $saved_jobs = [];

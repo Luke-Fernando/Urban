@@ -30,7 +30,17 @@ class JobController extends Controller
     public function job()
     {
         if ($this->user != null) {
-            $this->view('job/job/job', []);
+            if (isset($_GET["id"]) && !empty($_GET["id"])) {
+                $id = $_GET["id"];
+                $data = [
+                    "id" => $id
+                ];
+                $job = $this->job_model->load_job($data);
+                $this->view('job/job/job', $job);
+            } else {
+                header("Location: /404");
+                exit;
+            }
         } else {
             header("Location: /signin");
             exit;
