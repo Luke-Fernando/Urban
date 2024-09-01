@@ -12,6 +12,10 @@ class JobModel extends Model {
     postJob() {
         return this.post("/api/job/post-job");
     }
+
+    saveJobs() {
+        return this.post("/api/home/save-jobs");
+    }
 }
 
 export default JobModel;

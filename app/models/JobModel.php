@@ -251,6 +251,7 @@ class JobModel extends Model
                 // }
                 $total_reviews = $job_owner_review_num;
                 $job = [
+                    "id" => $id,
                     "title" => $title,
                     "date" => $date,
                     "payment_type" => $payment_type,

@@ -91,7 +91,9 @@ class JobController extends Controller {
         });
     }
 
-    job() { }
+    job() {
+        this.saveJob();
+    }
 
     apply() {
         this.addMilestone();
@@ -384,6 +386,30 @@ class JobController extends Controller {
         this.data.number_of_freelancers = number_of_freelancers.getAttribute("data-select-value");
         this.data.payment_type = payment_type.getAttribute("data-select-value");
         this.data.budget = budget.value;
+    }
+
+    saveJob() {
+        const saveJob = document.getElementById("save-job");
+
+        saveJob.addEventListener("click", async () => {
+            let jobId = saveJob.getAttribute("data-job");
+            this.processLoader.appendProcessLoadSpinner();
+            this.jobModel.addValue("job_id", jobId);
+            let responseJSON = await this.jobModel.saveJobs();
+
+            this.processLoader.removeProcessLoadSpinner(1000, async () => {
+                let response = JSON.parse(responseJSON);
+                if (response.status == "success") {
+                    if (response.message == "success") {
+                        this.alert.alert("Job status updated", 3000);
+                    } else {
+                        this.alert.alert(response.message, 3000);
+                    }
+                } else {
+                    this.alert.alert("Something went wrong", 3000);
+                }
+            });
+        });
     }
 }
 
